@@ -1,0 +1,2961 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<style>
+  /* Márgenes laterales y centrado de contenedores */
+  body, main, section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .container, .contenido, section > div {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Header sutil con franja degradada */
+  header {
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.75rem 0;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      rgba(246,132,25,0) 0%,
+      rgba(246,132,25,0.8) 50%,
+      rgba(246,132,25,0) 100%
+    );
+    pointer-events: none;
+  }
+
+body::after {
+  content: "";
+  display: block;
+  height: 120px; /* aumenta el espacio inferior */
+}
+section {
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .contenido {
+    column-count: 1 !important;
+  }
+}
+
+
+.hero h1 {
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  font-size: 2.5em;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+.video-autoplay {
+  width: 100%;
+  max-width: 800px;
+  max-height: 600px;
+  object-fit: cover;
+  display: block;
+  margin: 30px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+/* Encabezados uniformes */
+.titulo-seccion {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Espaciado de secciones */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .titulo-seccion {
+    font-size: 1.5em;
+  }
+
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+.hero-text h1, .hero-text h2 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1, .hero-text h2 {
+    font-size: 1.5em;
+  }
+}
+
+}
+
+}
+
+
+/* Contact Form Styling */
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  border-top: 2px solid #ccc;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-section textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-section input[type="submit"] {
+  background-color: #f58220;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section input[type="submit"]:hover {
+  background-color: #d96d1a;
+}
+
+
+.boton-principal {
+    background-color: #f57c00 !important;
+    color: white !important;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* --- Sticky header, active nav, subtle shadow --- */
+.site-header {
+  position: sticky;
+  top: 0; z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: saturate(180%) blur(6px);
+  transition: box-shadow .2s ease, background-color .2s ease;
+}
+.site-header.scrolled {
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  background: rgba(255,255,255,0.96);
+}
+.nav-btn.active {
+  background-color: rgba(246,132,25,0.12);
+  color: #F68419;
+}
+
+/* --- Hero CTAs --- */
+.cta-row { display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; }
+.btn {
+  display:inline-block; padding:12px 18px; border-radius:10px;
+  font-weight:600; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease, background-color .2s;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background:#F68419; color:#fff; box-shadow:0 6px 16px rgba(246,132,25,.25); }
+.btn-primary:hover { background:#d96d1a; }
+.btn-ghost { background: transparent; color:#F68419; border:2px solid #F68419; }
+.btn-ghost:hover { background: rgba(246,132,25,0.08); }
+
+/* --- Metrics strip --- */
+.metrics {
+  display:flex; gap:24px; margin-top:22px; flex-wrap:wrap;
+}
+.metric {
+  min-width: 160px;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:14px; padding:14px 16px;
+  background:#fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+.metric-num { font-size: 22px; font-weight:800; line-height:1; color:#111; }
+.metric-label { font-size:14px; margin-top:6px; color:#444; }
+
+/* --- Why section --- */
+#why { padding: 48px 0; }
+#why h2 { font-size: 28px; margin-bottom: 18px; }
+.why-grid {
+  display:grid; grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap:16px;
+}
+@media (max-width: 800px){
+  .why-grid { grid-template-columns: 1fr; }
+}
+.why-item {
+  background:#fff; border:1px solid rgba(0,0,0,.08);
+  border-radius:16px; padding:16px 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+.why-item h3 { font-size:18px; margin:0 0 6px; }
+.why-item p { margin:0; color:#444; }
+.hero-text { width:min(1100px,92vw); padding: 0 16px; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.hero-text h1 { font-size: clamp(28px, 4vw, 46px); margin:0; }
+.hero-text p { font-size: clamp(14px, 2.2vw, 18px); }
+@media (max-width: 900px){
+  .hero-slider{ height: 420px; }
+  .metrics{ gap:12px; }
+  .metric{ min-width:140px; padding:12px 14px; }
+}
+
+
+/* HERO hotfix: safe top padding to prevent title overshoot while preserving previous layout */
+.hero-text { padding-top: 8px; }
+@media (max-width: 900px){ .hero-text { padding-top: 6px; } }
+
+/* --- METRICS LAYOUT REDO: perfectly centered and equal height --- */
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 22px;
+}
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 180px;
+  flex: 1 1 220px;
+  max-width: 280px;
+  min-height: 96px;
+}
+.metric-num {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 800;
+  margin: 0;
+}
+.metric-label {
+  font-size: 14px;
+  line-height: 1.3;
+  margin-top: 6px;
+}
+@media (max-width: 900px){
+  .metric{ min-width: 160px; flex: 1 1 45%; }
+}
+@media (max-width: 560px){
+  .metric{ min-width: 140px; flex: 1 1 100%; }
+}
+
+
+/* --- METRICS COMPACT & CONTROLLED (3 per row on desktop) --- */
+.metrics{
+  display:flex;
+  gap:12px;
+  margin-top:16px;
+  justify-content:center;
+  align-items:stretch;
+  flex-wrap:wrap;
+}
+@media (min-width: 901px){
+  .metrics{ flex-wrap:nowrap; }
+}
+.metric{
+  display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
+  flex:0 1 220px;
+  min-height:74px;
+  padding:10px 12px;
+  border-radius:12px;
+}
+.metric-num{ font-size:20px; font-weight:800; line-height:1; margin:0; }
+.metric-label{ font-size:13px; line-height:1.25; margin-top:6px; }
+@media (max-width: 560px){
+  .metric{ flex: 1 1 100%; }
+}
+
+/* === Servicios: compact per-block buttons (replace anchors) === */
+#servicios .svc-mini-btn{
+  display:inline-block; margin:8px 0 0 0; padding:6px 10px;
+  border:1px solid #0a4b98; border-radius:999px;
+  color:#0a4b98; text-decoration:none; font-weight:700; font-size:.9rem;
+  background:#f5f9ff;
+}
+#servicios .svc-mini-btn:hover{ background:#eaf2ff; color:#002b5c; border-color:#002b5c; }
+
+
+/* === Servicios: minimal fix — keep layout, align buttons, no sticky table === */
+#servicios .services-card thead,
+#servicios .services-card thead tr,
+#servicios .services-card thead th{
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  box-shadow: none !important;
+}
+#servicios .services-card{ margin-bottom: 32px !important; position: relative; z-index: 0; }
+
+/* Header space + absolute button aligned per row without changing layout */
+#servicios .contenido > div{ position: relative; padding-top: 44px; } /* reserve header lane */
+#servicios .contenido > div h3{
+  margin: 0 0 8px 0; line-height: 1.15;
+}
+#servicios .contenido > div .svc-mini-btn{
+  position: absolute; right: 0; top: 6px;
+  display: inline-flex; align-items: center;
+  width: auto; white-space: nowrap;
+  padding: 6px 12px; font-size: .88rem;
+  z-index: 1;
+}
+@media (max-width: 900px){
+  #servicios .contenido > div{ padding-top: 0; }
+  #servicios .contenido > div .svc-mini-btn{ position: static; margin-top: 8px; }
+}
+
+
+
+/* === Servicios: tighter margins for big CTA === */
+#servicios .svc-cta-global{ text-align:center; margin:24px 0 10px; }
+#servicios .svc-big-btn{ padding:14px 34px; font-size:1.1rem; }
+
+#servicios .svc-big-btn:hover{
+  background:#0a4b98;
+  transform:translateY(-2px);
+}
+
+
+/* --- SERVICIOS: Botón global atractivo y centrado --- */
+#servicios .svc-cta-global { 
+  text-align: center; 
+  margin: 40px auto 20px; 
+}
+#servicios .svc-big-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  background: #F68419; /* naranja corporativo */
+  border-radius: 40px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(246,132,25,0.35);
+  transition: all 0.3s ease;
+}
+#servicios .svc-big-btn:hover {
+  background: #002b5c; /* azul corporativo */
+  transform: scale(1.05);
+}
+
+
+/* Emphasis in translated paragraphs */
+.brand-emph { color: #002b5c; font-weight: 700; }
+
+
+/* --- SERVICIOS: Títulos con mayor relevancia --- */
+#servicios h3{
+  font-family:'Poppins',sans-serif;
+  font-size:1.8em;
+  font-weight:800;
+  color:#002b5c;
+  text-align:center;
+  margin:25px auto 20px;
+  padding:10px 20px;
+  display:inline-block;
+  background:linear-gradient(90deg, rgba(246,132,25,0.12) 0%, rgba(0,43,92,0.12) 100%);
+  border-left:6px solid #F68419;
+  border-radius:6px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.08);
+  position:relative;
+}
+#servicios h3::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:3px;
+  background:#F68419;
+  margin:8px auto 0;
+  border-radius:2px;
+}
+#servicios h3:hover{
+  color:#F68419;
+  transform:translateY(-2px);
+  transition:all .3s ease;
+}
+
+</style>
+<style>
+  /* Márgenes laterales y centrado de contenedores */
+  body, main, section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .container, .contenido, section > div {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Imágenes centradas y responsivas */
+  img {
+    display: block;
+    margin: 1rem auto;
+    max-width: 100%;
+    height: auto;
+  }
+  /* Header con franja degradada */
+  header {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 1000;
+    padding: 0.75rem 0;
+  }
+  
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        rgba(246, 132, 25, 0) 0%,
+        rgba(246, 132, 25, 0.3) 50%,
+        rgba(246, 132, 25, 0) 100%
+    );
+    pointer-events: none;
+}
+
+
+/* FAQ section subtle orange gradient background and icon color */
+#faq .faq-question {
+    background: linear-gradient(to right, rgba(246,132,25,0.05), rgba(246,132,25,0));
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+#faq .faq-question span {
+    color: #F68419;
+}
+
+/* Encabezados uniformes */
+.titulo-seccion {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Espaciado de secciones */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .titulo-seccion {
+    font-size: 1.5em;
+  }
+
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+.hero-text h1, .hero-text h2 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1, .hero-text h2 {
+    font-size: 1.5em;
+  }
+}
+
+}
+
+}
+
+
+/* Contact Form Styling */
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  border-top: 2px solid #ccc;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-section textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-section input[type="submit"] {
+  background-color: #f58220;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section input[type="submit"]:hover {
+  background-color: #d96d1a;
+}
+
+</style>
+<meta charset="utf-8"/>
+<meta content="Agencia aduanera en Venezuela con servicios de importación, exportación y logística. Grupo Aduana Import C.A." name="description"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Servicios Aduaneros </title>
+<style>
+    body {
+      margin: 0;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    header {
+      background-color: white;
+      border-bottom: 2px solid #F68419;
+      color: white;
+      padding: 5px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: #002b5c;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .section {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .hero {
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 2em;
+      color: white;
+    }
+    .inicio-hero {
+      background: url('puerto_buque.jpg') no-repeat center center/cover;
+    }
+    .nosotros-hero {
+      background: url('https://cdn.pixabay.com/photo/2017/01/06/19/15/dock-1956093_1280.jpg') no-repeat center center/cover;
+    }
+    .servicios-hero {
+      background: url('Barco_mercante_1.jpg') no-repeat center center/cover;
+    }
+    .contacto-hero {
+      background: url('https://cdn.pixabay.com/photo/2017/08/30/07/52/port-2694373_1280.jpg') no-repeat center center/cover;
+    }
+    .contenido {
+      padding: 40px;
+      background-color: white;
+    }
+  
+    
+    html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        position: relative;
+    }
+    body::after {
+        content: "";
+        display: block;
+        height: 80px; /* espacio igual al alto del footer */
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer {
+        background-color: #F68419;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 1.1em;
+        padding: 12px;
+        width: 100%;
+    }
+    .contact-form .form-group {
+        margin-bottom: 25px;
+    }
+
+    .contenido {
+        font-size: 1.15em;
+        line-height: 1.8;
+    }
+
+    .partners-hero {
+      background: url('contract-3002431_1280.jpg') no-repeat center center/cover;
+    }
+
+
+
+#partners div[style*="box-shadow"] {
+    border-radius: 10px;
+}
+#partners div[style*="box-shadow"]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-form button,
+a.boton-principal {
+    background-color: #005fa3 !important;
+    color: white !important;
+    border: 2px solid transparent !important;
+    border-radius: 8px !important;
+    padding: 14px 28px !important;
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.contact-form button:hover,
+a.boton-principal:hover {
+    background-color: white !important;
+    color: #005fa3 !important;
+    border: 2px solid #005fa3 !important;
+    box-shadow: 0 0 12px #005fa3 !important;
+    transform: scale(1.08) !important;
+    cursor: pointer !important;
+}
+
+.nav-btn {
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s, transform 0.2s;
+  text-decoration: none;
+  color: #002b5c;
+  font-weight: bold;
+}
+
+.nav-btn:hover {
+  background-color: rgba(246, 132, 25, 0.4);
+  transform: scale(1.05);
+}
+
+
+.partner-box {
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+:target.partner-box {
+  border: 3px solid #F68419;
+  background-color: #fff6ea;
+}
+
+
+.hero-slider { position: relative; height: 520px;
+  overflow: hidden;
+}
+.hero-slider .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.hero-slider .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.hero-slider .hero-text { position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -42%);
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  font-size: 2.5em;
+  text-align: center;
+  z-index: 2;
+  pointer-events:auto;
+}
+
+.hero-slider { position: relative; height: 520px;
+  overflow: hidden;
+}
+
+.hero-slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 0;
+}
+
+.hero-slider .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+
+
+.hero-slider {
+  position: relative;
+  height: 420px; /* antes era 300px */
+  overflow: hidden;
+}
+
+.hero-slider .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 0;
+}
+
+.hero-slider .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+a[data-partner-link] h3 {
+  color: #005fa3;
+  position: relative;
+  transition: transform 0.2s, background-color 0.3s;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+a[data-partner-link] h3:hover {
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+a[data-partner-link] h3 {
+  color: #e67e22;  /* naranja más tenue */
+  position: relative;
+  transition: transform 0.2s, background-color 0.3s;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin: 0;
+}
+
+a[data-partner-link] h3:hover {
+  transform: scale(1.05);
+  background-color: #fff3e0;
+  cursor: pointer;
+}
+
+#servicios h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#servicios p {
+  text-align: justify;
+  margin-top: 0;
+}
+
+.partner-box {
+  margin: 20px 0;
+  padding: 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.partner-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+a.boton-principal {
+  background-color: #005fa3 !important;
+  color: white !important;
+  border-radius: 5px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  transition: background-color 0.3s ease !important;
+}
+
+a.boton-principal:hover {
+  background-color: #004b82 !important;
+}
+
+/* Encabezados uniformes */
+.titulo-seccion {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Espaciado de secciones */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .titulo-seccion {
+    font-size: 1.5em;
+  }
+
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+.hero-text h1, .hero-text h2 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1, .hero-text h2 {
+    font-size: 1.5em;
+  }
+}
+
+}
+
+}
+
+
+/* Contact Form Styling */
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  border-top: 2px solid #ccc;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-section textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-section input[type="submit"] {
+  background-color: #f58220;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section input[type="submit"]:hover {
+  background-color: #d96d1a;
+}
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  .resaltado {
+    box-shadow: 0 0 15px 4px #F68419 !important;
+    transition: box-shadow 0.6s ease-in-out;
+  }
+
+.nav-btn {
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s, transform 0.2s;
+  text-decoration: none;
+  color: #002b5c;
+  font-weight: bold;
+}
+
+.nav-btn:hover {
+  
+   rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+
+.partner-box {
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  
+   white;
+}
+
+:target.partner-box {
+  border: 3px solid #F68419;
+  
+   #fff6ea;
+}
+
+
+/* Encabezados uniformes */
+.titulo-seccion {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Espaciado de secciones */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .titulo-seccion {
+    font-size: 1.5em;
+  }
+
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+.hero-text h1, .hero-text h2 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1, .hero-text h2 {
+    font-size: 1.5em;
+  }
+}
+
+}
+
+}
+
+
+/* Contact Form Styling */
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  border-top: 2px solid #ccc;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-section textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-section input[type="submit"] {
+  background-color: #f58220;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section input[type="submit"]:hover {
+  background-color: #d96d1a;
+}
+
+</style>
+<script>
+
+function setActiveNav(id){
+  document.querySelectorAll('nav .nav-btn').forEach(a => a.classList.remove('active'));
+  const link = document.querySelector(`nav .nav-btn[href="#${id}"]`);
+  if (link) link.classList.add('active');
+}
+window.addEventListener('scroll', () => {
+  const h = document.querySelector('header.site-header');
+  if(!h) return;
+  if (window.scrollY > 10) h.classList.add('scrolled'); else h.classList.remove('scrolled');
+});
+
+function showSection(id) {
+  const sections = document.querySelectorAll('section');
+  sections.forEach(s => s.style.display = 'none');
+  document.getElementById(id).style.display = 'block'; setActiveNav(id);
+}
+</script>
+<style>
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  padding-right: 30px;
+  margin-top: 20px;
+}
+.faq-question .arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s ease;
+}
+.faq-question.active .arrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+.faq-answer.active {
+  display: block;
+}
+
+/* Encabezados uniformes */
+.titulo-seccion {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Espaciado de secciones */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .titulo-seccion {
+    font-size: 1.5em;
+  }
+
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+.hero-text h1, .hero-text h2 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1, .hero-text h2 {
+    font-size: 1.5em;
+  }
+}
+
+}
+
+}
+
+
+/* Contact Form Styling */
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  border-top: 2px solid #ccc;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-section textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-section input[type="submit"] {
+  background-color: #f58220;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section input[type="submit"]:hover {
+  background-color: #d96d1a;
+}
+
+</style>
+<style>
+  /* FAQ section background video */
+  #faq {
+    position: relative;
+    overflow: hidden;
+  }
+  #faq video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -42%);
+    object-fit: cover;
+    z-index: -1;
+  }
+  #faq .container {
+    position: relative;
+    z-index: 1;
+  }
+
+/* Encabezados uniformes */
+.titulo-seccion {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Espaciado de secciones */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .titulo-seccion {
+    font-size: 1.5em;
+  }
+
+  section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+
+.hero-text h1, .hero-text h2 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1, .hero-text h2 {
+    font-size: 1.5em;
+  }
+}
+
+}
+
+}
+
+
+/* Contact Form Styling */
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  border-top: 2px solid #ccc;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-section textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-section input[type="submit"] {
+  background-color: #f58220;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section input[type="submit"]:hover {
+  background-color: #d96d1a;
+}
+
+</style>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init();
+  });
+</script>
+<style id="nav-fix">
+  header nav{display:flex; gap:6px; align-items:center; white-space:nowrap;}
+  header .nav-btn{padding:6px 12px;}
+  @media (max-width:1100px){
+    header nav{overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
+    header nav::-webkit-scrollbar{display:none;}
+  }
+
+/* === Aesthetic fix: centered nav, brand blue, better hover === */
+header.site-header nav{ display:flex; gap:24px; align-items:center; justify-content:center; flex-wrap:wrap; }
+header.site-header .nav-btn{ color:#0a4b98; font-weight:700; padding:8px 14px; border-radius:20px; }
+header.site-header .nav-btn:hover{ background:rgba(10,75,152,.10); transform:translateY(-1px); }
+header.site-header .nav-btn.active{ color:#0a4b98; background:rgba(10,75,152,.12); }
+
+</style>
+<style id="nosotros-strong-blue">
+  /* Azul corporativo para los énfasis de la sección ¿Quiénes somos? */
+  #nosotros strong { color: #002b5c !important; }
+</style>
+<style id="logo-badge-contrast">
+  /* Logo como "insignia": más legible sin forzar el reescalado del navegador */
+  header img[alt="Logo Empresa"]{
+    height: 120px !important;   /* +10 px para legibilidad */
+    width: auto;
+    background: #fff;
+    border-radius: 50%;
+    padding: 4px;               /* menos halo -> más área útil del logo */
+    border: 2px solid rgba(0,0,0,.06);
+    box-shadow: 0 4px 14px rgba(0,0,0,.12);
+  }
+  header .brand{ align-items: center; gap: 12px; overflow: visible; }
+
+  @media (max-width: 1100px){
+    header img[alt="Logo Empresa"]{ height: 100px !important; padding: 4px; }
+  }
+  @media (max-width: 768px){
+    header img[alt="Logo Empresa"]{ height: 80px !important; padding: 3px; }
+  }
+</style>
+<style id="mini-metrics-banner-css">
+/* Compact banner just under 'Confía en nosotros...' */
+#inicio .mini-metrics-banner{
+  margin: 14px auto 0;
+  padding: 10px 12px;
+  max-width: 980px;
+  border: 1.5px solid rgba(246,132,25,.35);
+  background: linear-gradient(180deg, rgba(246,132,25,.05), rgba(246,132,25,.02));
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  align-items: center;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+#inicio .mini-metrics-banner:hover{
+  transform: translateY(-1px);
+  border-color: rgba(246,132,25,.55);
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+}
+#inicio .mini-metric{
+  text-align:center;
+  padding: 6px 4px;
+  border-radius: 8px;
+  transition: background-color .2s ease;
+}
+#inicio .mini-metric:hover{
+  background: rgba(246,132,25,.08);
+}
+#inicio .mini-metric .num{
+  font-weight: 900;
+  font-size: clamp(18px, 2.6vw, 22px);
+  color: #F68419;
+  letter-spacing: .2px;
+}
+#inicio .mini-metric .label{
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: #333;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+@media (max-width: 820px){
+  #inicio .mini-metrics-banner{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px){
+  #inicio .mini-metrics-banner{ grid-template-columns: 1fr 1fr; gap: 8px; }
+  #inicio .mini-metric .label{ font-size: 12px; }
+}
+</style><style id="services-servicesbox-css">
+/* Servicios: caja full-row centrada justo debajo del HERO del section */
+#servicios .services-fullrow{
+  position: relative;
+  display: block !important;
+  width: 100% !important;
+  max-width: 1040px;
+  margin: 16px auto 0 !important;
+  padding: 0;
+  float: none !important;
+  clear: both !important;
+  grid-column: 1 / -1 !important;
+  flex: 0 0 100% !important;
+}
+#servicios .services-card{
+  border: 1px solid #e8e8e8;
+  border-top: 4px solid #F68419;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+#servicios .services-card table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #333;
+}
+#servicios .services-card thead th {
+  text-align: center;
+  background: #f7f7f7;
+  color: #002b5c !important;
+  font-weight: 800;
+  padding: 12px 14px;
+  border-bottom: 1px solid #ededed;
+}
+#servicios .services-card tbody td{
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f1f1;
+  line-height: 1.45;
+  text-align: left;
+}
+#servicios .services-card tbody tr:nth-child(even){ background:#fafafa; }
+#servicios .services-card td:first-child{ font-weight: 700; color:#111; }
+#servicios .services-card tbody tr:hover td{ background: rgba(246,132,25,.05); }
+
+/* empuja el contenido subsecuente (como los bloques de texto/columnas) */
+#servicios .services-fullrow + * { margin-top: 34px !important; }
+
+@media (max-width: 780px){
+  #servicios .services-card thead{ display:none; }
+  #servicios .services-card tbody tr{
+    display:block;
+    margin: 12px;
+    border:1px solid #eee;
+    border-top:3px solid #F68419;
+    border-radius:8px;
+    background:#fff;
+    overflow:hidden;
+  }
+  #servicios .services-card tbody td{
+    display:block;
+    border-bottom:1px solid #eee;
+  }
+  #servicios .services-card tbody td:last-child{ border-bottom:0; }
+  #servicios .services-card tbody td::before{
+    content: attr(data-label);
+    display:block;
+    font-weight:600;
+    color:#F68419;
+    margin-bottom:4px;
+  }
+}
+</style><style id="footer-aesthetic">
+/* === Footer aesthetic: dark blue bar, white text/links, clean spacing === */
+footer{ background: #F68419 !important; color:#fff !important; }
+footer a{ color:#fff !important; text-decoration:underline; }
+footer strong{ color:#fff !important; }
+</style>
+<style id="cta-blue">
+/* === Hero CTA color swap to brand orange === */
+.btn-primary{
+  background: var(--brand-accent, #F68419) !important;
+  color:#fff !important;
+  box-shadow: 0 6px 16px rgba(246,132,25,.28) !important;
+  border: none;
+}
+.btn-primary:hover{
+  background: #d96d1a !important; /* darker orange on hover */
+}
+.btn-ghost{
+  border: 2px solid var(--brand-accent, #F68419) !important;
+  color: var(--brand-accent, #F68419) !important;
+  background: transparent !important;
+}
+.btn-ghost:hover{
+  background: rgba(246,132,25,.10) !important;
+  color: #d96d1a !important;
+  border-color: #d96d1a !important;
+}
+</style>
+<style id="hero-polish">
+/* === Hero text polish === */
+.hero-text h1{ font-size: clamp(32px, 4.6vw, 64px) !important; text-shadow: 1px 1px 3px rgba(0,0,0,.45); }
+.hero-text p{ font-size: clamp(14px, 2.2vw, 20px) !important; text-shadow: 0.5px 0.5px 2px rgba(0,0,0,.35); }
+</style>
+<style id="brand-consistency">
+/* === Brand palette consistency === */
+:root{ --brand-blue:#002b5c; --brand-accent:#F68419; }
+#servicios h3{ color:var(--brand-blue) !important; }
+#servicios h3::after{ background:var(--brand-accent) !important; }
+a[data-partner-link] h3{ color:#005fa3 !important; }
+</style>
+<style id="nav-centered">
+/* === Nav single-line on desktop === */
+header.site-header{ display:flex; align-items:center; gap:16px; }
+header.site-header img{ flex:0 0 auto; }
+header.site-header nav{ display:flex; align-items:center; justify-content:center; gap:20px; flex:1 1 auto; flex-wrap:nowrap; min-width:0; }
+header.site-header .nav-btn{ display:inline-block; white-space:nowrap; padding:8px 12px; flex:0 0 auto; }
+.lang-switch{ flex:0 0 auto; }
+/* On tablets/mobiles, permit wrapping */
+@media (max-width: 768px){
+  header.site-header nav{ gap:12px; flex-wrap:wrap; }
+}
+
+/* === Header spacing fix to avoid nav overlapping the title banner === */
+header.site-header nav{ margin-left: 20px; }
+header.site-header .title-banner{ display:inline-block; }
+@media (max-width: 900px){
+  header.site-header nav{ margin-left: 10px; }
+}
+
+</style>
+<style id="about-video-center">
+  /* Alinear el bloque del video con el mismo contenedor que el título */
+  #nosotros #video-nosotros{
+    width: min(100%, 1200px);
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 24px auto !important;    /* override inline margin:24px 0; */
+    display: flex;
+    justify-content: center;
+  }
+  #nosotros .video-card{
+    width: min(100%, 960px);
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    overflow: hidden;
+  }
+  #nosotros .video-card iframe,
+  #nosotros .video-card video{
+    display:block;
+    width: 100% !important;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+</style>
+<style id="contact-center-fix">
+  /* Center the contact form card */
+  section#contacto form,
+  section#contacto .contact-form,
+  section#contacto .form-card,
+  section#contacto .contact-card,
+  section#contacto .contact-box {
+    max-width: 760px;
+    margin: 0 auto !important;
+    display: block;
+  }
+  section#contacto .form-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  section#contacto .form-row > * { flex:1 1 240px; }
+  section#contacto textarea{ min-height:140px; resize:vertical; }
+  @media (max-width: 768px){
+    section#contacto{ padding-left:14px; padding-right:14px; }
+  }
+</style>
+<style id="contact-card-beauty">
+  /* --- Contact card: elegant, centered, with accent --- */
+  section#contacto .contact-box,
+  section#contact .contact-box,
+  section#contacto form,
+  section#contact form{
+    background:#fff;
+    border:1px solid rgba(0,0,0,.06);
+    border-radius:16px;
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+    padding:24px 20px;
+    position:relative;
+  }
+  @media (min-width: 768px){
+    section#contacto .contact-box,
+    section#contact .contact-box,
+    section#contacto form,
+    section#contact form{
+      padding:28px 32px;
+    }
+  }
+  /* top accent bar */
+  section#contacto .contact-box::after,
+  section#contact .contact-box::after,
+  section#contacto form::after,
+  section#contact form::after{
+    content:"";
+    position:absolute;
+    left:16px; right:16px; top:0;
+    height:4px;
+    background: linear-gradient(90deg, var(--brand-accent, #F68419), #ffb15f);
+    border-radius: 6px;
+  }
+
+  /* Labels & fields */
+  section#contacto label, section#contact label{
+    display:block;
+    font-weight:600;
+    color:var(--brand-blue, #002b5c);
+    margin:8px 0 6px;
+  }
+  section#contacto input[type="text"],
+  section#contacto input[type="email"],
+  section#contacto input[type="tel"],
+  section#contacto textarea,
+  section#contact input[type="text"],
+  section#contact input[type="email"],
+  section#contact input[type="tel"],
+  section#contact textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    background:#fff;
+    outline:none;
+    transition:border-color .2s ease, box-shadow .2s ease, transform .05s ease;
+  }
+  section#contacto textarea, section#contact textarea{
+    min-height:140px; resize:vertical;
+  }
+  section#contacto input::placeholder,
+  section#contacto textarea::placeholder,
+  section#contact input::placeholder,
+  section#contact textarea::placeholder{
+    color:#9ca3af;
+  }
+  section#contacto input:focus,
+  section#contacto textarea:focus,
+  section#contact input:focus,
+  section#contact textarea:focus{
+    border-color: var(--brand-accent, #F68419);
+    box-shadow: 0 0 0 3px rgba(246,132,25,.22);
+  }
+
+  /* Two-column row on desktop (if you use form-row wrappers) */
+  section#contacto .form-row, section#contact .form-row{
+    display:flex; gap:16px; flex-wrap:wrap;
+  }
+  section#contacto .form-row > *,
+  section#contact .form-row > *{
+    flex:1 1 260px;
+  }
+
+  /* Submit button polish */
+  section#contacto button[type="submit"],
+  section#contact button[type="submit"],
+  section#contacto input[type="submit"],
+  section#contact input[type="submit"]{
+    margin-top:10px;
+    background: var(--brand-accent, #F68419);
+    color:#fff; border:none;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 22px rgba(246,132,25,.28);
+  }
+  section#contacto button[type="submit"]:hover,
+  section#contact button[type="submit"]:hover,
+  section#contacto input[type="submit"]:hover,
+  section#contact input[type="submit"]:hover{
+    background:#d96d1a;
+  }
+
+  /* Mobile padding */
+  @media (max-width: 768px){
+    section#contacto, section#contact{ padding-left:14px; padding-right:14px; }
+  }
+</style>
+</head>
+<body>
+<!-- Switch de idioma -->
+<header class="site-header" style="
+  background-color: white;
+  border-bottom: 2px solid #F68419;
+  padding: 5px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+">
+<div style="display: flex; align-items: center;">
+<img alt="Logo Empresa" loading="lazy" src="Aduana_Import_LOGO.png" style="height: 100px;"/>
+<div class="title-banner" style="
+      margin-left: 10px;
+      padding: 6px 16px;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 15%, rgba(255,255,255,0.05) 85%, rgba(255,255,255,0) 100%),
+                  url('marca_agua_bandera_mas_visible.png') no-repeat center center / cover;
+      border-radius: 6px;
+    ">
+<strong style="
+        font-size: 1.7em;
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        background: linear-gradient(to right, #002b5c, #F68419);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      ">Grupo Aduana Import C.A</strong>
+</div>
+</div>
+<nav>
+<a class="nav-btn" href="#inicio" onclick="showSection('inicio'); return false;">Inicio</a>
+<a class="nav-btn" href="#nosotros" onclick="showSection('nosotros'); return false;">¿Quiénes somos?</a>
+<a class="nav-btn" href="#servicios" onclick="showSection('servicios'); return false;">Servicios</a>
+<a class="nav-btn" href="#partners" onclick="showSection('partners'); return false;">Aliados</a>
+<a class="nav-btn" href="#faq" onclick="showSection('faq'); return false;">FAQ</a>
+<div class="svc-cta-global"><a class="nav-btn svc-big-btn" data-i18n="services.btn.info" href="#contacto" onclick="showSection('contacto'); return false;">Pedir información</a></div>
+</nav>
+<div style="position:absolute; top:10px; right:20px;"><a data-lang-btn="es" href="javascript:void(0)" onclick="setLang('es')" style="margin-right:8px; font-weight:bold; color:#002b5c; text-decoration:none;">ES</a><a data-lang-btn="en" href="javascript:void(0)" onclick="setLang('en')" style="font-weight:bold; color:#002b5c; text-decoration:none;">EN</a></div>
+</header>
+<section data-aos="fade-up" id="partners" style=";display:none;">
+<div class="hero partners-hero" style="height: 250px; color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5em; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);"><h1>Nuestros Aliados Estratégicos</h1></div><div style="background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),no-repeat center center/contain; display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 30px;">
+<div class="partner-box" id="partner-pacific-world" style=" background-repeat: no-repeat; background-position: center center;  padding-top: 20px; padding-bottom: 20px; flex: 1; min-width: 250px; max-width: 300px; margin: 15px; padding-left: 20px; padding-right: 20px;box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: none; border-radius: 10px;text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default; background-image:url('logo_pacific_world_tenue_blue_v2.png') !important;background-repeat:no-repeat;background-position:center; background-size:70% !important; min-height:85px;">
+<h3 style="text-align: center;"><span data-i18n="pw.card.title">Pacific World Agencia Naviera</span></h3>
+<p>
+<div data-i18n="pw.card.kicker" style="font-weight: bold; color: #005fa3; margin-bottom: 10px; text-align: center;">
+        Operaciones Navieras con Excelencia Internacional
+        </div><span data-i18n="pw.card.body">
+        Estamos autorizados para operar y atender embarcaciones en puertos venezolanos. Gestionamos documentación para atraque/desatraque, abastecimineto en puerto y cuidados de las tripulacion.
+        </span></p>
+</div>
+<div class="partner-box" id="partner-aduana-import" style="background-image: url('logo_aduana_import_tenue_10.png'); background-repeat: no-repeat; background-position: center; background-size: 95%; flex: 1; min-width: 250px; max-width: 300px; margin: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: none; border-radius: 10px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default;">
+<h3 style="text-align: center;"><span data-i18n="ai.card.title">Servicios Aduaneros Aduana Import</span></h3>
+<p><div data-i18n="ai.card.kicker" style="font-weight: bold; color: #005fa3; margin-bottom: 10px; text-align: center;">Desaduanamiento Ágil, Seguro y Eficiente</div><span data-i18n="ai.card.body">Ofrecemos nacionalización de mercancías en todas las aduanas de Venezuela. Tramitamos permisos, requisitos legales y brindamos acompañamiento completo desde la compra hasta la entrega.</span></p>
+</div>
+<div class="partner-box" id="partner-global-ship" style="background-image: url('image-8-tenue-bg-blanco.png'); background-repeat: no-repeat; background-position: center; background-size: 95%; flex: 1; min-width: 250px; max-width: 300px; margin: 15px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: none; border-radius: 10px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default;">
+<h3 style="text-align: center;"><span data-i18n="gs.card.title">Global Ship</span></h3>
+<p><div data-i18n="gs.card.kicker" style="font-weight: bold; color: #005fa3; margin-bottom: 10px; text-align: center;">Tu Conexión Logística con el Mundo</div><span data-i18n="gs.card.body">Conectamos líneas navieras y aéreas con Venezuela desde cualquier parte del mundo. Recolectamos mercancía y elegimos el transporte más eficiente —aéreo o marítimo— para cada operación.</span></p>
+</div>
+<div class="partner-box" id="partner-servicontainer" style="background-image: url('logo_servicontainer_tenue_marca_agua.png');background-repeat: no-repeat;background-position: center;background-size: contain;background-color: rgba(255,255,255,0.5);background-blend-mode: lighten;flex: 1; min-width: 250px; max-width: 300px; margin: 15px; padding: 20px;box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: none; border-radius: 10px;text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: default;">
+<h3 style="text-align: center;"><span data-i18n="sc.card.title">Servicontainer Servicios de Transportes</span></h3>
+<p><div data-i18n="sc.card.kicker" style="font-weight: bold; color: #005fa3; margin-bottom: 10px; text-align: center;">Logística Terrestre que Mueve a Venezuela</div><span data-i18n="sc.card.body">Servicontainer es tu solución confiable en transporte nacional de mercancías. Contamos con una amplia red operativa que nos permite movilizar carga de forma segura y puntual en todo el territorio venezolano.
+  Nos adaptamos a los requerimientos logísticos de cada cliente, asegurando entregas eficientes y una atención personalizada en cada trayecto.</span></p>
+</div>
+</div>
+<div class="contenido">
+</div>
+</section>
+<section id="testimonios" style="padding: 60px 20px; background-color: #fefefe; display: none;"><div class="contenido" style="max-width: 900px; margin: auto;"><h2 class="titulo-seccion" style="text-align: center; color: #005fa3; margin-bottom: 30px;">Lo que dicen nuestros clientes</h2><div #f68419;="" #fffaf5;="" 0="" 20px;="" 2px="" 5px="" 8px="" background-color:="" border-left:="" box-shadow:="" data-aos="fade-right" padding:="" rgba(0,0,0,0.05);"="" solid="" style="margin-bottom: 25px;"><p style="font-style: italic;">“Con Aduana Import todo llegó a tiempo y sin sorpresas. ¡Volveremos a contratar!”</p><p style="text-align: right; font-weight: bold; margin-top: 10px; color: #002b5c;">— José Pérez</p></div><div #f68419;="" #fffaf5;="" 0="" 20px;="" 2px="" 5px="" 8px="" background-color:="" border-left:="" box-shadow:="" data-aos="fade-right" padding:="" rgba(0,0,0,0.05);"="" solid="" style="margin-bottom: 25px;"><p style="font-style: italic;">“El trato fue excelente y resolvieron todos los trámites aduanales rápidamente.”</p><p style="text-align: right; font-weight: bold; margin-top: 10px; color: #002b5c;">— María Gómez</p></div><div #f68419;="" #fffaf5;="" 0="" 20px;="" 2px="" 5px="" 8px="" background-color:="" border-left:="" box-shadow:="" data-aos="fade-right" padding:="" rgba(0,0,0,0.05);"="" solid="" style="margin-bottom: 25px;"><p style="font-style: italic;">“Nuestra carga llegó sin contratiempos. Muy profesionales.”</p><p style="text-align: right; font-weight: bold; margin-top: 10px; color: #002b5c;">— Transporte Andino C.A.</p></div></div></section><footer style="background-color: #F68419; color:white; text-align:center; padding:20px; font-size:0.9em;">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1000px; margin: auto;">
+<div style="flex: 1; min-width: 250px;">
+<strong data-i18n="footer.contact">Contacto</strong><br/>
+            Tel: (0412) 4159813 - (0242) 3618385<br/>
+            Email: operacionesaduanaimport@gmail.com<br/>Horario de atención: 08:00-18:00
+        </div>
+<div style="flex: 1; min-width: 250px;">
+<strong data-i18n="footer.quick">Enlaces rápidos</strong><br/>
+<a data-i18n="footer.link.home" href="#inicio" style="color:white;">Inicio</a> |
+            <a data-i18n="footer.link.about" href="#nosotros" style="color:white;">¿Quiénes somos?</a> |
+            <a data-i18n="footer.link.services" href="#servicios" style="color:white;">Servicios</a> |
+            <a data-i18n="footer.link.contact" href="#contacto" style="color:white;">Contacto</a>
+</div>
+<div style="flex: 1; min-width: 250px;">
+<strong data-i18n="footer.follow">Síguenos</strong><br/>
+<a href="#" style="color:white;">LinkedIn</a>
+</div>
+</div>
+<div style="margin-top: 20px;">© <span id="year"></span> Grupo Aduana Import C.A</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</footer><section data-aos="fade-up" id="inicio" style=";display:block;">
+<div class="hero-slider"><img class="slide active" loading="lazy" src="container-3857611_960_720.jpg"/><img class="slide" loading="lazy" src="container-6566778_960_720.jpg"/><img class="slide" loading="lazy" src="container-ship-7155667_960_720.jpg"/><img class="slide" loading="lazy" src="crane-6345296_960_720.jpg"/><img class="slide" loading="lazy" src="door-containers-1088459_640.jpg"/><img class="slide" loading="lazy" src="port-4602964_960_720.jpg"/><img class="slide" loading="lazy" src="port-4908710_960_720.jpg"/><img class="slide" loading="lazy" src="Puerto_3.jpg"/><div class="hero-text"><h1><span data-i18n="home.hero.title">Soluciones aduaneras a tu medida</span></h1><p style="max-width:720px;margin:8px 0 0;"><span data-i18n="home.hero.subtitle">Operaciones seguras, ágiles y 100 % en regla.</span></p><div class="cta-row"><a class="btn btn-primary" href="#contacto"><span data-i18n="home.cta.quote">Cotizar ahora</span></a><a class="btn btn-ghost" href="https://wa.me/584124159813" rel="noopener" target="_blank"><span data-i18n="home.cta.whatsapp">Escríbenos por WhatsApp</span></a></div></div></div><div class="metrics"><div class="metric"><div class="metric-num" data-i18n="metrics.years.num">10+</div><div class="metric-label" data-i18n="metrics.years.label">años de experiencia</div></div><div class="metric"><div class="metric-num" data-i18n="metrics.global.num">Mundo</div><div class="metric-label" data-i18n="metrics.global.label">Puertos y aeropuertos en todo el mundo</div></div><div class="metric"><div class="metric-num" data-i18n="metrics.clearance.num">2–3 días</div><div class="metric-label" data-i18n="metrics.clearance.label">Desaduanamiento promedio</div></div></div>
+<div class="contenido">
+<p>
+En Grupo Aduana Import, somos un equipo especializado en servicios aduaneros con base en Puerto
+Cabello, La Guaira y Maracaibo, estamos comprometidos con brindar soluciones prácticas, seguras y
+ajustadas a la realidad del comercio en Venezuela.<br/><br/>
+Con más de 10 años de experiencia en el manejo de procesos de importación y exportación, ayudamos a
+empresas nacionales e internacionales a cumplir con todos los requisitos legales, optimizando tiempos y
+costos. Nos destacamos por ofrecer <strong>atención personalizada, respuestas rápidas y total transparencia
+en cada paso del proceso</strong>.<br/><br/>
+<strong>Nuestra misión:</strong> que tu mercancía llegue a destino sin estrés, retrasos, ni sorpresas.
+</p>
+<h3 style="text-align: center; color: #F68419;  margin-top: 40px;; font-size:clamp(1.35rem, 2.8vw, 2.0rem); line-height:1.2;">Confía en nosotros y lleva tu comercio internacional al siguiente nivel</h3><div class="mini-metrics-banner" data-i18n="home.mini.metrics"><div class="mini-metric"><div class="num">+10</div><div class="label">Años de servicio</div></div><div class="mini-metric"><div class="num">+10K</div><div class="label">Importaciones</div></div><div class="mini-metric"><div class="num">+30</div><div class="label">Países</div></div><div class="mini-metric"><div class="num">+50</div><div class="label">Clientes</div></div></div></div>
+</section><section data-aos="fade-up" id="why"><div class="container"><h2><span data-i18n="why.title">¿Por qué elegirnos?</span></h2><div class="why-grid"><div class="why-item"><h3><span data-i18n="why.1.title">Cumplimiento 100 %</span></h3><p><span data-i18n="why.1.body">Procesos ajustados a la normativa vigente y documentación impecable.</span></p></div><div class="why-item"><h3><span data-i18n="why.2.title">Tiempos de liberación cortos</span></h3><p><span data-i18n="why.2.body">Nos enfocamos en cada trámite para reducir días y costos.</span></p></div><div class="why-item"><h3><span data-i18n="why.3.title">Red logística global</span></h3><p><span data-i18n="why.3.body">Conexiones confiables para aire, mar y tierra.</span></p></div><div class="why-item"><h3><span data-i18n="why.4.title">Acompañamiento end-to-end</span></h3><p><span data-i18n="why.4.body">Te guiamos desde el origen hasta la entrega final.</span></p></div></div></div></section><section data-aos="fade-up" id="nosotros" style=";display:none;"><div class="hero nosotros-hero" style="background-image: url('airplane-8892881_1280.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; height: 250px;"><h1 data-i18n="about.title">¿Quiénes somos?</h1></div><div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 30px auto;"><img alt="Contenedores coloridos" loading="lazy" src="container-4203677_1280.jpg" style="width: 14%; height: auto; object-fit: cover;"/><img alt="Puerto de día" loading="lazy" src="port-1845350_1280.jpg" style="width: 14%; height: auto; object-fit: cover;"/><img alt="Trabajador" loading="lazy" src="construction-worker-956496_1280.jpg" style="width: 14%; height: auto; object-fit: cover;"/><img alt="Puerto de noche" loading="lazy" src="port-7418239_1280.jpg" style="width: 14%; height: auto; object-fit: cover;"/><img alt="Puerto adicional" loading="lazy" src="port-7841563_1280.jpg" style="width: 14%; height: auto; object-fit: cover;"/></div><div style="max-width: 900px; margin: 20px auto 0; padding-bottom: 0; font-size: 1.15em; line-height: 1.8; text-align: justify;">
+<p><span data-i18n="about.p1"><strong style="color:var(--brand-blue)">En Grupo Aduana Import</strong>, tenemos más de 10 años moviendo cargas con eficiencia, seguridad y cumplimiento. Operamos directamente en los principales puertos y terminales aéreas de Venezuela, ofreciendo un servicio aduanero confiable y sin complicaciones.</span></p>
+<p><span data-i18n="about.p2">Nos especializamos en brindar <strong style="color:var(--brand-blue)">soluciones integrales</strong> para operaciones de importación y exportación, con un enfoque ágil, estratégico y adaptado a las necesidades de cada cliente.</span></p>
+<ul>
+<li><span data-i18n="about.b1"><strong style="color:var(--brand-blue)">Manejo experto</strong> de cargas marítimas y aéreas.</span></li>
+<li><span data-i18n="about.b2"><strong style="color:var(--brand-blue)">Trámites aduanales rápidos</strong> y conforme a la normativa vigente.</span></li>
+<li><span data-i18n="about.b3"><strong style="color:var(--brand-blue)">Procesos diseñados</strong> para reducir tiempos, costos y riesgos.</span></li>
+</ul>
+<p><strong style="color:var(--brand-blue)"><span data-i18n="about.sectors.title">Atendemos sectores clave como:</span></strong></p>
+<ul>
+<li><span data-i18n="about.sectors.1">Logística y transporte</span></li>
+<li><span data-i18n="about.sectors.2">Alimentos y productos perecederos</span></li>
+<li><span data-i18n="about.sectors.3">Tecnología y electrónica</span></li>
+<li><span data-i18n="about.sectors.4">Bienes de consumo y más</span></li>
+</ul>
+<p><span data-i18n="about.p3">Nuestro equipo está conformado por profesionales altamente capacitados y comprometidos con la excelencia, la transparencia y la atención personalizada. Además, contamos con una <strong style="color:var(--brand-blue)">red de aliados estratégicos</strong> que fortalece nuestra capacidad de respuesta ante cualquier tipo de operación.</span></p>
+<p><em><span data-i18n="about.p4">En un mundo donde cada minuto cuenta, somos tu respaldo confiable en el comercio internacional.</span></em></p>
+<h3 style="text-align: center; margin-top: 30px; font-size: 1.8em; color: #F68419;"><span data-i18n="about.tagline">¡Con nosotros las fronteras están abiertas!</span></h3></div>
+<div id="video-nosotros" style="display:block; margin:24px 0;">
+<div class="video-card"><div class="video-wrapper"><video controls="" id="video-nosotros-video" playsinline="" preload="metadata" style="display:block; margin:0 auto; max-width:100%; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,.2)">
+<source src="WhatsApp Video 2025-05-16 at 13.41.57.mp4" type="video/mp4"/>
+    Tu navegador no soporta video HTML5.
+  </video></div></div>
+</div>
+<div class="galeria-imagenes" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 40px 0;">
+<img loading="lazy" src="container-5073221_1280.jpg" style="width: 280px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;"/>
+<img loading="lazy" src="port-614543_1280.jpg" style="width: 280px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;"/>
+<img loading="lazy" src="container-ship-7472196_1280.jpg" style="width: 280px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;"/>
+<img loading="lazy" src="container-2136505_1280.jpg" style="width: 280px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;"/>
+</div>
+</section><section data-aos="fade-up" id="servicios" style="margin-bottom: 0; padding-bottom: 200px;display:none;">
+<div class="hero servicios-hero" style="display: flex; align-items: center; justify-content: center; height: 250px;"><h1 data-lang="es">Servicios Aduaneros</h1>
+<h1 data-lang="en" style="display:none;">Customs Services</h1>
+</div><div class="services-fullrow"><div class="services-card"><table><thead><tr><th data-i18n="home.servicesBox.h1">Servicio</th><th data-i18n="home.servicesBox.h2">Cobertura y Alcance</th><th data-i18n="home.servicesBox.h3">Tipo de Carga</th><th data-i18n="home.servicesBox.h4">Beneficios Clave</th></tr></thead><tbody><tr><td data-i18n="home.servicesBox.r1.c1" data-label="Servicio">Transporte Aéreo</td><td data-i18n="home.servicesBox.r1.c2" data-label="Cobertura y Alcance">Nacional e internacional – principales aeropuertos de Venezuela</td><td data-i18n="home.servicesBox.r1.c3" data-label="Tipo de Carga">Alimentos, bebidas, mercancía peligrosa, animales vivos, artículos varios</td><td data-i18n="home.servicesBox.r1.c4" data-label="Beneficios Clave">Alta velocidad, manejo prioritario, seguimiento en tiempo real</td></tr><tr><td data-i18n="home.servicesBox.r2.c1" data-label="Servicio">Transporte Marítimo Internacional</td><td data-i18n="home.servicesBox.r2.c2" data-label="Cobertura y Alcance">Todos los puertos venezolanos y principales puertos del mundo</td><td data-i18n="home.servicesBox.r2.c3" data-label="Tipo de Carga">Contenedores, carga general o especializada</td><td data-i18n="home.servicesBox.r2.c4" data-label="Beneficios Clave">Red logística amplia, salidas regulares, conexiones globales</td></tr><tr><td data-i18n="home.servicesBox.r3.c1" data-label="Servicio">Transporte Terrestre</td><td data-i18n="home.servicesBox.r3.c2" data-label="Cobertura y Alcance">Cobertura nacional</td><td data-i18n="home.servicesBox.r3.c3" data-label="Tipo de Carga">Mercancía frágil, peligrosa o de gran volumen</td><td data-i18n="home.servicesBox.r3.c4" data-label="Beneficios Clave">Seguridad garantizada, entregas a tiempo, flota adaptada</td></tr><tr><td data-i18n="home.servicesBox.r4.c1" data-label="Servicio">Importación y Exportación</td><td data-i18n="home.servicesBox.r4.c2" data-label="Cobertura y Alcance">Nacional e internacional</td><td data-i18n="home.servicesBox.r4.c3" data-label="Tipo de Carga">Bienes de consumo, tecnología, perecederos, etc.</td><td data-i18n="home.servicesBox.r4.c4" data-label="Beneficios Clave">Asesoría integral, cumplimiento normativo, optimización de costos</td></tr></tbody></table></div></div>
+<div class="contenido" style="max-width: 1100px; margin: auto; column-count: 2; column-gap: 60px; font-size: 1.03em; line-height: 1.6;;margin-bottom: 30px">
+<div style="display: flex; flex-wrap: wrap; gap: 60px; justify-content: space-between; align-items: flex-start; margin-top: 30px;"><div style="flex: 1 1 45%; min-height: 320px; display: flex; flex-direction: column; justify-content: flex-start;"><h3 data-i18n="services.air.title" style="margin: 0 0 10px 0; font-size: 1.4em; text-align: left; min-height: 60px;"></h3>
+<p data-i18n="services.air.p1">Para garantizar una excelente calidad de este servicio, contamos con una <span style="color: #002b5c; font-weight: bold;">gran presencia en aeropuertos</span> nacionales e internacionales.</p>
+<p data-i18n="services.air.p2">Disponemos de servicios especializados para, bebidas, alimentos, mercancías peligrosas, animales vivos o artículos varios. De igual forma, hacemos un <span style="color: #002b5c; font-weight: bold;">exhaustivo seguimiento</span> de la mercancía para evitar contratiempos.</p>
+</div><div style="flex: 1 1 45%; min-height: 320px; display: flex; flex-direction: column; justify-content: flex-start;; margin-top: -20px;"><h3 data-i18n="services.land.title" style="margin: 0 0 10px 0; font-size: 1.4em; text-align: left; min-height: 60px;"></h3>
+<p data-i18n="services.land.p1">Nuestra flota de vehículos está preparada para realizar <span style="color: #002b5c; font-weight: bold;">incluso los encargos más exigentes</span>, ya sea por el volumen de la mercancía o por sus particularidades (fragilidad, peligrosidad, etc.).</p>
+<p data-i18n="services.land.p2"><span data-i18n="services.land.p2">Ante todo, garantizamos la seguridad de sus productos y la llegada al destino en el tiempo acordado.</span></p>
+</div><div style="flex: 1 1 45%; min-height: 320px; display: flex; flex-direction: column; justify-content: flex-start;"><h3 data-i18n="services.sea.title" style="margin: 0 0 10px 0; font-size: 1.4em; text-align: left; min-height: 60px;"></h3>
+<p data-i18n="services.sea.p1">Realizamos conexiones entre <span style="color: #002b5c; font-weight: bold;">todos los puertos</span> venezolanos así como entre los puertos de todo el planeta. Nuestra red de tráfico marítimo es extensa, por lo que no tendrá problemas al programar sus envíos.</p>
+<p data-i18n="services.sea.p2"><span data-i18n="services.sea.p2">Contamos con delegaciones en Puerto Cabello, Maiquetía y en La Guaira.</span></p>
+</div><div style="flex: 1 1 45%; min-height: 320px; display: flex; flex-direction: column; justify-content: flex-start;; margin-top: -20px;"><h3 data-i18n="services.trade.title" style="margin: 0 0 10px 0; font-size: 1.4em; text-align: left; min-height: 60px;"></h3>
+<p data-i18n="services.trade.p1">Trabajamos tanto a nivel nacional como internacional. Nos ocupamos de los trámites documentales necesarios. Si lo desea, puede contratar nuestro <span style="color: #002b5c; font-weight: bold;">seguro para mercancías</span>.</p>
+<p data-i18n="services.trade.p2"><span data-i18n="services.trade.p2">Además, incorporamos protocolos para la prevención del COVID-19, cuidando el estado de la mercancía y el prestigio de nuestros clientes.</span></p>
+</div>
+</div>
+</div>
+<div class="svc-cta-global">
+<a class="svc-big-btn" data-i18n="services.btn.info" href="#contacto">Pedir información</a>
+</div>
+</section><section class="contact-section" data-aos="fade-up" id="contacto" style=";display:none;">
+<div class="hero contacto-her o" style="background: url('contacto_handshake.jpg') no-repeat center center/cover; height: 250px; color: white; display: flex; align-items: center; justify-content: center; font-size: 4em; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+    Contáctanos
+  </div>
+<div class="contenido" style="max-width: 1000px; margin: 30px auto; font-size: 1.1em; line-height: 2.7; padding: 0 30px;">
+<p>
+   Ubicados en el Centro Comercial "Las Valentinas" Puerto Cabello, listos para ofrecerte soluciones completas en transporte internacional, importación y exportación de mercancías.
+    Además, ponemos a tu disposición un agente de aduanas y servicios de envío multimodal, adaptados a tus necesidades logísticas.
+  </p>
+<p>
+    Movemos todo tipo de productos, incluyendo mercancías peligrosas, con la seguridad que ofrece nuestro seguro personalizado para cada tipo de carga.
+    Nuestra red internacional nos da acceso a principales puertos y aeropuertos en todo el mundo.
+  </p>
+<p style="text-align: center; font-size: 1.1em;"><strong>¿Quieres saber más? Estamos a un clic de distancia.</strong></p><div style="max-width: 600px; margin: 20px auto; text-align: center;"><h3 style="color: #002b5c; text-align: center; margin-top: 30px;">¡Dónde estamos!</h3>
+<iframe allowfullscreen="" height="250" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Centro+Comercial+Las+Valentinas,+Puerto+Cabello,+Venezuela&amp;output=embed" style="border:0;" width="100%"></iframe>
+</div>
+<p style="text-align: center; font-size: 1.1em; font-weight: bold;"><strong>¡Contáctanos hoy mismo!</strong></p>
+<h4>📍 Oficina Central</h4>
+<p>
+    C.C  Las Valentinas, Piso 3 oficina 2-10/12,Puerto Cabello 2050, Estado Carabobo - Galeria comercial La Vela,piso 1-6 Esquina de Cristo, La Guaira edo La Guaira - Venezuela<br/>
+    📞 Teléfono: (0412) 4159813 - (0242) 3618385 <br/>
+    📧 Email: operacionesaduanaimport@gmail.com<br/>Horario de atención: 08:00-18:00
+
+</p></div>
+<div class="contact-form" style="max-width: 800px; margin: 30px 40px; font-size: 1.15em;">
+<form action="https://formsubmit.co/tu-correo@ejemplo.com" method="POST">
+<div style="display:none;">
+<label>Si ves este campo, déjalo vacío: <input name="website" type="text"/></label>
+</div>
+<input name="_next" type="hidden" value="https://tusitio.com/gracias.html"/>
+<div class="form-group">
+<label for="nombre">Nombre</label>
+<input id="nombre" name="nombre" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="correo">Correo electrónico</label>
+<input id="correo" name="correo" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="mensaje">Mensaje</label>
+<textarea id="mensaje" name="mensaje" required="" rows="5"></textarea>
+</div>
+<div class="form-group">
+<button class="boton-principal" style="background-color: #f57c00 !important; color: white !important; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold;" type="submit">Enviar</button>
+</div>
+<div id="form-success" style="display:none; color: green; margin-top: 10px;">Gracias por contactarnos. Te responderemos pronto.</div>
+</form>
+</div>
+</section>
+<script>
+  function showSectionFromHash() {
+    let hash = location.hash || "#inicio";
+    document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
+
+    let target = document.querySelector(hash);
+    if (target && target.tagName !== "SECTION") {
+      target = target.closest("section");
+    }
+
+    if (!target) { hash = "#inicio"; target = document.querySelector(hash); }
+
+    if (target) {
+      target.style.display = "block";
+    }
+
+  }
+
+  window.addEventListener("load", showSectionFromHash);
+  window.addEventListener("hashchange", showSectionFromHash);
+</script>
+<script>
+document.querySelectorAll('[data-partner-link]').forEach(el => {
+  el.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').replace('#', '');
+    document.querySelectorAll("section").forEach(s => s.style.display = "none");
+    document.getElementById("partners").style.display = "block";
+
+    setTimeout(() => {
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.classList.add('resaltado');
+        setTimeout(() => target.classList.remove('resaltado'), 1500);
+      }
+    }, 300);
+  });
+});
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.hero-slider .slide');
+  if (slides.length > 0) {
+    slides[0].classList.add('active');
+  }
+
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % totalSlides;
+    slides[currentSlide].classList.add('active');
+  }, 3000);
+});
+</script>
+<section data-aos="fade-up" id="faq" style=";display:none;">
+<div class="hero" style="background: url('faq_header_crop.jpg') no-repeat center center/cover; height: 200px; color: white; display: flex; align-items: center; justify-content: center; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+<h1><span data-i18n="faq.title">Preguntas Frecuentes</span></h1>
+</div>
+<div class="contenido" style="max-width: 900px; margin: auto;"><h1>Preguntas Frecuentes</h1><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q1"><span data-i18n="faq.q1">¿Qué servicios ofrecen?</span></span><span class="arrow">▼</span></button><div class="faq-answer"><span data-i18n="faq.a1">Ofrecemos servicios de importación, exportación, transporte terrestre, aéreo y marítimo, así como asesoramiento en aduanas.</span></div></div><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q2">¿Dónde están ubicados?</span><span class="arrow">▼</span></button><div class="faq-answer"><span data-i18n="faq.a2">Nuestras oficinas están en Puerto Cabello, Estado Carabobo, y La Guaira, Venezuela.</span></div></div><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q3">¿Trabajan con mercancía peligrosa?</span><span class="arrow">▼</span></button><div class="faq-answer"><span data-i18n="faq.a3">Sí, tenemos experiencia en el manejo y documentación necesaria para mercancías peligrosas.</span></div></div><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q4">¿Pueden ayudarme con la nacionalización de mercancías?</span><span class="arrow">▼</span></button><div class="faq-answer"><span data-i18n="faq.a4">Sí, nos encargamos del proceso completo de desaduanamiento y trámites necesarios.</span></div></div><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q5">¿Ofrecen servicios internacionales?</span><span class="arrow">▼</span></button><div class="faq-answer"><span data-i18n="faq.a5">Sí, conectamos con puertos y aeropuertos en todo el mundo a través de nuestros aliados logísticos.</span></div></div><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q6">¿Cuánto tiempo toma el tránsito de un envío desde China hasta Venezuela?</span><span class="arrow">▼</span></button><div class="faq-answer"><span data-i18n="faq.a6">El tiempo de tránsito marítimo promedio desde China hasta Venezuela varía entre 15 y 20 días, dependiendo del proveedor, el tipo de carga y las condiciones logísticas internacionales.</span></div></div><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q7">¿En cuánto tiempo se libera una mercancía en aduana?</span><span class="arrow">▼</span></button><div class="faq-answer"><span data-i18n="faq.a7">Generalmente, el proceso de liberación tarda entre 2 y 3 días hábiles. Esto puede ajustarse según la categoría del producto y la correcta presentación de los documentos requeridos.</span></div></div><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q8">¿Cuáles son los pasos esenciales para liberar productos en aduana?</span><span class="arrow">▼</span></button><div class="faq-answer"><ol>
+<li><span data-i18n="faq.a8.1">Verificación de toda la documentación requerida.</span></li>
+<li><span data-i18n="faq.a8.2">Pago de tributos, aranceles e impuestos.</span></li>
+<li><span data-i18n="faq.a8.3">Inspección física o documental por parte de la aduana.</span></li>
+<li><span data-i18n="faq.a8.4">Obtención del levante por parte de la naviera o aerolínea.</span></li>
+<li><span data-i18n="faq.a8.5">Coordinación logística para entrega en destino final.</span></li>
+</ol></div></div><div class="faq-item"><button class="faq-question"><span data-i18n="faq.q9">¿Por qué es importante cumplir con las normativas aduaneras?</span><span class="arrow">▼</span></button><div class="faq-answer"><span data-i18n="faq.a9">El cumplimiento de normativas aduaneras asegura operaciones sin contratiempos, evita sanciones y protege la legalidad de la carga. En Grupo Aduana Import C.A, garantizamos que cada proceso esté alineado con los requerimientos legales vigentes.</span></div></div><div id="faq-slogan" style="margin-top:28px;text-align:center;"><h3 style="color:var(--brand-orange,#f68419) !important; font-size:clamp(0.95rem, 2.0vw, 1.4rem); line-height:1.25; margin:0; font-weight:700;"><span data-i18n="home.compliance">En Grupo Aduana Import C.A. nos aseguramos de que tu operación esté 100 % ajustada a las normas vigentes.</span></h3></div>
+</div>
+</section>
+<script>
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const answer = button.nextElementSibling;
+    const isActive = button.classList.contains('active');
+
+    document.querySelectorAll('.faq-question').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.faq-answer').forEach(ans => ans.classList.remove('active'));
+
+    if (!isActive) {
+      button.classList.add('active');
+      answer.classList.add('active');
+    }
+  });
+});
+</script>
+<section data-aos="fade-up" id="noticias" style=";display:none;">
+<div class="hero" style="background: url('news-1172463_1280.jpg') no-repeat center center/cover; height: 250px; color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5em; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+<h1>Noticias</h1>
+</div>
+<div class="contenido" style="max-width: 900px; margin: auto;">
+<h2 class="titulo-seccion" style="color: #005fa3; text-align: center;">Actualidad Portuaria en Venezuela</h2>
+<iframe frameborder="0" height="1600" src="https://www.google.com/maps?q=Centro+Comercial+Las+Valentinas,+Puerto+Cabello,+Venezuela&amp;output=embed" width="850"></iframe>
+</div>
+</section>
+<div id="detalle-aduana-import" style="display: none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background-color: white; padding: 30px; border-radius: 12px; max-width: 600px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 9999; font-size: 1.05em;"><h3 style="color: #F68419; font-size: 1.8em; font-weight: bold; text-shadow: 2px 2px 6px rgba(0,0,0,0.4); margin-bottom: 18px; letter-spacing: 0.5px; text-transform: uppercase;"><span data-i18n="ai.title">Aduana Import</span></h3><p style="text-align: justify; line-height: 1.8; margin-top: 20px;"><span data-i18n="ai.intro">Expertos en liberación de mercancías, asegurando que todo producto que entra o sale de Venezuela cumpla con la normativa vigente.</span></p>
+<ul>
+<li><span data-i18n="ai.b1">Gestión de permisos, licencias y documentos ante SENIAT y demás entes.</span></li>
+<li><span data-i18n="ai.b2">Licencia para operar en todos los puertos del país.</span></li>
+<li><span data-i18n="ai.b3">Procesos aduaneros ágiles, confiables y sin contratiempos.</span></li>
+</ul>
+<p><strong><span data-i18n="ai.result">Resultado: importaciones y exportaciones 100 % en regla, sin riesgos legales ni retrasos.</span></strong></p></div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const partnerBox = document.getElementById("partner-aduana-import");
+  const detalleBox = document.getElementById("detalle-aduana-import");
+
+  let hoverTimeout;
+
+  function showDetalle() {
+    clearTimeout(hoverTimeout);
+    detalleBox.style.display = "block";
+  }
+
+  function hideDetalle() {
+    hoverTimeout = setTimeout(() => {
+      if (!partnerBox.matches(':hover') && !detalleBox.matches(':hover')) {
+        detalleBox.style.display = "none";
+      }
+    }, 200);
+  }
+
+  partnerBox.addEventListener("mouseenter", showDetalle);
+  partnerBox.addEventListener("mouseleave", hideDetalle);
+  detalleBox.addEventListener("mouseenter", showDetalle);
+  detalleBox.addEventListener("mouseleave", hideDetalle);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const partnerBox2 = document.getElementById("partner-servicontainer");
+  const detalleBox2 = document.getElementById("detalle-servicontainer");
+
+  let hoverTimeout2;
+
+  function showDetalle2() {
+    clearTimeout(hoverTimeout2);
+    detalleBox2.style.display = "block";
+  }
+
+  function hideDetalle2() {
+    hoverTimeout2 = setTimeout(() => {
+      if (!partnerBox2.matches(':hover') && !detalleBox2.matches(':hover')) {
+        detalleBox2.style.display = "none";
+      }
+    }, 200);
+  }
+
+  partnerBox2.addEventListener("mouseenter", showDetalle2);
+  partnerBox2.addEventListener("mouseleave", hideDetalle2);
+  detalleBox2.addEventListener("mouseenter", showDetalle2);
+  detalleBox2.addEventListener("mouseleave", hideDetalle2);
+});
+</script>
+<div id="detalle-servicontainer" style="display: none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background-color: white; padding: 30px; border-radius: 12px; max-width: 600px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 9999; font-size: 1.05em;">
+<h3 style="color: #F68419; font-size: 1.8em; font-weight: bold; text-shadow: 2px 2px 6px rgba(0,0,0,0.4); margin-bottom: 18px; letter-spacing: 0.5px; text-transform: uppercase;"><span data-i18n="sc.title">Servicontainer</span></h3>
+<p style="text-align: justify; line-height: 1.8; margin-top: 20px;"><span data-i18n="sc.intro">Servicontainer<br/>Encargada del traslado terrestre de mercancías en todo el país, garantizando entregas seguras, puntuales y bien resguardadas.</span></p>
+<ul>
+<li><span data-i18n="sc.b1">Transporte especializado para productos frágiles, delicados o de gran volumen.</span></li>
+<li><span data-i18n="sc.b2">Cobertura en todo el territorio nacional.</span></li>
+<li><span data-i18n="sc.b3">Servicio confiable, con monitoreo constante y cumplimiento en los tiempos acordados.</span></li>
+</ul>
+<p><strong><span data-i18n="sc.result">Resultado: tu carga llega a destino sin sorpresas, sin demoras y en perfecto estado.</span></strong></p>
+</div>
+<div id="detalle-global-ship" style="display: none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background-color: white; padding: 30px; border-radius: 12px; max-width: 600px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 9999; font-size: 1.05em;">
+<h3 style="color: #F68419; font-size: 1.8em; font-weight: bold; text-shadow: 2px 2px 6px rgba(0,0,0,0.4); margin-bottom: 18px; letter-spacing: 0.5px; text-transform: uppercase;"><span data-i18n="gs.title">Global Ship</span></h3>
+<p style="text-align: justify; line-height: 1.8; margin-top: 20px;"><span data-i18n="gs.intro">Tu enlace con el mundo. Global Ship crea puentes con aliados logísticos internacionales, facilitando el tránsito aduanal por aire, mar y tierra.</span></p>
+<ul>
+<li><span data-i18n="gs.b1">Búsqueda del medio de transporte más eficiente y rentable.</span></li>
+<li><span data-i18n="gs.b2">Red de contactos globales para operaciones más rápidas y seguras.</span></li>
+<li><span data-i18n="gs.b3">Tarifas competitivas y enfoque integral en cada proyecto.</span></li>
+</ul>
+<p><strong><span data-i18n="gs.result">Resultado: soluciones globales adaptadas a tus necesidades logísticas, con respaldo profesional.</span></strong></p>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const partnerBox3 = document.getElementById("partner-global-ship");
+  const detalleBox3 = document.getElementById("detalle-global-ship");
+
+  let hoverTimeout3;
+
+  function showDetalle3() {
+    clearTimeout(hoverTimeout3);
+    detalleBox3.style.display = "block";
+  }
+
+  function hideDetalle3() {
+    hoverTimeout3 = setTimeout(() => {
+      if (!partnerBox3.matches(':hover') && !detalleBox3.matches(':hover')) {
+        detalleBox3.style.display = "none";
+      }
+    }, 200);
+  }
+
+  partnerBox3.addEventListener("mouseenter", showDetalle3);
+  partnerBox3.addEventListener("mouseleave", hideDetalle3);
+  detalleBox3.addEventListener("mouseenter", showDetalle3);
+  detalleBox3.addEventListener("mouseleave", hideDetalle3);
+});
+</script>
+<div id="detalle-pacific-world" style="display: none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); background-color: white; padding: 30px; border-radius: 12px; max-width: 600px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 9999; font-size: 1.05em;">
+<h3 style="color: #F68419; font-size: 1.8em; font-weight: bold; text-shadow: 2px 2px 6px rgba(0,0,0,0.4); margin-bottom: 18px; letter-spacing: 0.5px; text-transform: uppercase;"><span data-i18n="pw.title">Pacific World Naviera</span></h3>
+<p style="text-align: justify; line-height: 1.8; margin-top: 20px;"><span data-i18n="pw.intro">Especialistas en operaciones marítimas desde el origen hasta aguas venezolanas. Gestionan la entrada legal del buque y su tripulación, asegurando el cumplimiento de todos los requisitos migratorios y portuarios antes del ingreso al país.</span></p>
+<ul>
+<li><span data-i18n="pw.b1">Legalización de tripulantes y documentación del buque.</span></li>
+<li><span data-i18n="pw.b2">Supervisión de pasaportes, permisos y autorizaciones ante autoridades competentes.</span></li>
+<li><span data-i18n="pw.b3">Liberación de mercancía tras verificación completa.</span></li>
+<li><span data-i18n="pw.b4">Coordinación documental para zarpe seguro y sin demoras.</span></li>
+</ul>
+<p><strong><span data-i18n="pw.result">Resultado: operaciones marítimas eficientes, transparentes y seguras desde el primer minuto.</span></strong></p>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const partnerBox4 = document.getElementById("partner-pacific-world");
+  const detalleBox4 = document.getElementById("detalle-pacific-world");
+
+  let hoverTimeout4;
+
+  function showDetalle4() {
+    clearTimeout(hoverTimeout4);
+    detalleBox4.style.display = "block";
+  }
+
+  function hideDetalle4() {
+    hoverTimeout4 = setTimeout(() => {
+      if (!partnerBox4.matches(':hover') && !detalleBox4.matches(':hover')) {
+        detalleBox4.style.display = "none";
+      }
+    }, 200);
+  }
+
+  partnerBox4.addEventListener("mouseenter", showDetalle4);
+  partnerBox4.addEventListener("mouseleave", hideDetalle4);
+  detalleBox4.addEventListener("mouseenter", showDetalle4);
+  detalleBox4.addEventListener("mouseleave", hideDetalle4);
+});
+</script>
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,43,92,0.95);
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 0.95em;
+  z-index: 9999;
+">
+  Usamos cookies para mejorar tu experiencia en nuestro sitio. Al continuar navegando, aceptas nuestra <a href="#politica-cookies" style="color: #F68419; text-decoration: underline;">política de cookies</a>.
+  <button onclick="aceptarCookies()" style="
+    background: #F68419;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    margin-left: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+  ">Aceptar</button>
+</div>
+<script>
+  function aceptarCookies() {
+    localStorage.setItem("cookiesAceptadas", "true");
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+</script>
+<section id="politica-cookies" style="display: none; padding: 40px; background-color: #fdf8f3;">
+<div class="contenido" style="max-width: 800px; margin: auto;">
+<h1>Política de Cookies</h1>
+<p>Este sitio web utiliza cookies para mejorar la experiencia del usuario, ofrecer contenido personalizado y analizar el tráfico del sitio. Al continuar navegando por nuestro sitio, aceptas el uso de cookies según esta política.</p>
+<h2 class="titulo-seccion" style="color: #F68419;">¿Qué son las cookies?</h2>
+<p>Las cookies son pequeños archivos de texto que los sitios web colocan en el navegador del usuario para recordar información sobre su visita, como preferencias de idioma o contenidos vistos.</p>
+<h2 class="titulo-seccion" style="color: #F68419;">¿Qué tipo de cookies usamos?</h2>
+<ul>
+<li><strong>Cookies técnicas:</strong> necesarias para el funcionamiento del sitio.</li>
+<li><strong>Cookies de análisis:</strong> nos permiten entender cómo los usuarios interactúan con el sitio.</li>
+<li><strong>Cookies de terceros:</strong> como servicios de redes sociales o contenido incrustado (por ejemplo, videos de YouTube).</li>
+</ul>
+<h2 class="titulo-seccion" style="color: #F68419;">¿Cómo puedes gestionar las cookies?</h2>
+<p>Puedes permitir, bloquear o eliminar las cookies instaladas en tu dispositivo configurando las opciones de tu navegador. La desactivación de cookies puede afectar la funcionalidad del sitio.</p>
+<p>Si tienes dudas sobre nuestra política de cookies, puedes contactarnos a través del correo electrónico operacionesaduanaimport@gmail.com.</p>
+</div>
+</section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const enlaces = document.querySelectorAll('a[href^="#"]');
+  const videoContenedor = document.getElementById('video-nosotros');
+  const video = document.getElementById('video-nosotros-video');
+  enlaces.forEach(enlace => {
+    enlace.addEventListener('click', function () {
+      const target = this.getAttribute('href');
+      if (!videoContenedor) return;
+      if (target === '#nosotros') {
+        videoContenedor.style.display = 'block';
+        if (video) { video.pause(); }
+      } else {
+        videoContenedor.style.display = 'none';
+        if (video) { video.pause(); }
+      }
+    });
+  });
+});
+</script>
+<a aria-label="Contáctanos por WhatsApp" href="https://wa.me/584124159813" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 12px 16px; border-radius: 50px; font-size: 1.5em; z-index: 9999; box-shadow: 0 2px 10px rgba(0,0,0,0.2); text-decoration: none;" target="_blank" title="WhatsApp">💬</a><!-- Botón de WhatsApp accesible -->
+<script>
+  document.querySelectorAll('.open-partner-popup').forEach(function(el) {
+    el.addEventListener('click', function() {
+      const targetId = el.getAttribute('data-target');
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.style.display = 'block';
+      }
+    });
+  });
+</script>
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+  const form = e.target;
+  const email = form.querySelector('input[name="email"]');
+  const nombre = form.querySelector('input[name="name"]');
+  const mensaje = form.querySelector('textarea');
+  const honeypot = form.querySelector('input[name="website"]');
+
+  if (!email.value || !email.value.includes('@') || !nombre.value || !mensaje.value) {
+    alert("Por favor completa todos los campos correctamente.");
+    e.preventDefault();
+    return;
+  }
+
+  if (honeypot.value !== "") {
+    e.preventDefault(); // Es spam
+    return;
+  }
+
+  document.getElementById("form-success").style.display = "block";
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("video-nosotros");
+  if (!video) return;
+
+  video.pause();
+
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  function tryPlayVideo() {
+    if (isElementInViewport(video)) {
+      /* play removed */
+      window.removeEventListener('scroll', tryPlayVideo);
+    }
+  }
+
+  window.addEventListener('scroll', tryPlayVideo, { passive: true });
+});
+</script>
+<script id="nosotros-video-guard">
+(function(){
+  var userInteracted = false;
+  function markInteracted(){ userInteracted = true; }
+  ['click','touchstart','keydown'].forEach(function(evt){
+    window.addEventListener(evt, markInteracted, { once:true, passive:true });
+  });
+  function guard(){
+    var v = document.getElementById('video-nosotros-video');
+    if(!v) return;
+    try{
+      v.removeAttribute('autoplay');
+      // If some script fired play() before, force pause until user interacts
+      if(!userInteracted && !v.paused){ v.pause(); }
+      // If someone tries programmatic play() later:
+      var origPlay = v.play.bind(v);
+      v.play = function(){
+        if(userInteracted){ return origPlay(); }
+        // block hidden autoplay
+        return Promise.reject('Autoplay blocked: user interaction required');
+      };
+    }catch(e){}
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', guard);
+  }else{
+    guard();
+  }
+})();
+</script>
+<script>
+const I18N = {
+  es: {
+    "nav.home":"Inicio","nav.about":"¿Quiénes somos?","nav.services":"Servicios","nav.allies":"Aliados","nav.faq":"FAQ","nav.contact":"Contacto",
+    "allies.title":"Nuestros Aliados Estratégicos",
+
+    /* INICIO */
+    "home.hero":"Soluciones aduaneras a tu medida","home.cta.whatsapp":"Escríbenos por WhatsApp","home.cta.quote":"Cotizar ahora","home.hero.subtitle":"Operaciones seguras, ágiles y 100 % en regla.","home.hero.title":"Soluciones aduaneras a tu medida","home.compliance":"En Grupo Aduana Import C.A. nos aseguramos de que tu operación esté 100 % ajustada a las normas vigentes.",
+    "home.intro":"En Grupo Aduana Import, somos un equipo especializado en servicios aduaneros con base en Puerto Cabello, La Guaira y Maracaibo. Estamos comprometidos con brindar soluciones prácticas, seguras y ajustadas a la realidad del comercio en Venezuela.<br><br>Con más de 10 años de experiencia en importación y exportación, ayudamos a empresas a cumplir todos los requisitos legales optimizando tiempos y costos, con <strong>atención personalizada, respuestas rápidas y transparencia</strong> en cada paso.",
+    "home.cta":"Confía en nosotros y lleva tu comercio internacional al siguiente nivel",
+
+    /* NOSOTROS */
+    "about.title":"¿Quiénes somos?",
+    "about.p1":"En Grupo Aduana Import, tenemos más de 10 años moviendo cargas con eficiencia, seguridad y cumplimiento. Operamos en los principales puertos y terminales aéreas de Venezuela, ofreciendo un servicio aduanero confiable y sin complicaciones.",
+    "about.p2":"Brindamos <strong>soluciones integrales</strong> para importación y exportación con un enfoque ágil, estratégico y adaptado a cada cliente.",
+    "about.b1":"<strong>Manejo experto</strong> de cargas marítimas y aéreas.",
+    "about.b2":"<strong>Trámites aduanales rápidos</strong> y conformes a la normativa.",
+    "about.b3":"<strong>Procesos diseñados</strong> para reducir tiempos, costos y riesgos.",
+    "about.sectors.title":"<strong>Atendemos sectores clave como:</strong>",
+    "about.sectors.1":"Logística y transporte",
+    "about.sectors.2":"Alimentos y perecederos",
+    "about.sectors.3":"Tecnología y electrónica",
+    "about.sectors.4":"Bienes de consumo y más",
+    "about.p3":"Nuestro equipo está comprometido con la excelencia, la transparencia y la atención personalizada. Contamos con una <strong>red de aliados estratégicos</strong> que potencia nuestra capacidad de respuesta.",
+    "about.p4":"En un mundo donde cada minuto cuenta, somos tu respaldo confiable en el comercio internacional.",
+    "about.tagline":"¡Con nosotros las fronteras están abiertas!",
+
+    /* SERVICIOS (resumen) */
+    "services.title":"Servicios Aduaneros",
+    "services.air.title":"Transporte aéreo",
+    "services.air.p1":"Para garantizar una excelente calidad de este servicio, contamos con una <span class='brand-emph'>gran presencia en aeropuertos</span> nacionales e internacionales.",
+    "services.air.p2":"Disponemos de servicios especializados para bebidas, alimentos, mercancías peligrosas, animales vivos o artículos varios. De igual forma, hacemos un <span class='brand-emph'>exhaustivo seguimiento</span> de la mercancía para evitar contratiempos.",
+    "services.land.title":"Transporte terrestre ",
+    "services.land.p1":"Nuestra flota de vehículos está preparada para realizar <span class='brand-emph'>incluso los encargos más exigentes</span>, ya sea por el volumen de la mercancía o por sus particularidades (fragilidad, peligrosidad, etc.).",
+    "services.land.p2":"Ante todo, garantizamos la <span class='brand-emph'>seguridad</span> de sus productos y la llegada al destino en el tiempo acordado.",
+    "services.sea.title":"Transporte marítimo internacional",
+    "services.sea.p1":"Realizamos conexiones entre <span class='brand-emph'>todos los puertos</span> venezolanos así como entre los puertos de todo el planeta. Nuestra red de tráfico marítimo es extensa, por lo que no tendrá problemas al programar sus envíos.",
+    "services.sea.p2":"Contamos con delegaciones en Puerto Cabello, Maiquetía y en La Guaira.",
+    "services.trade.title":"Importación / exportación de productos",
+    "services.trade.p1":"Trabajamos tanto a nivel nacional como internacional. Nos ocupamos de los trámites documentales necesarios. Si lo desea, puede contratar nuestro <span class='brand-emph'>seguro para mercancías</span>.",
+    "services.trade.p2":"Además, incorporamos protocolos para la prevención del COVID‑19, cuidando el estado de la mercancía y el prestigio de nuestros clientes.",
+
+    "cta.request":"Solicita tu cotización ahora",
+
+    /* ALIADOS – tarjetas visibles (resumen para cards) */
+    "pw.card.title":"Pacific World Agencia Naviera",
+    "pw.card.kicker":"Operaciones Navieras con Excelencia Internacional",
+    "pw.card.body":"Autorizados para atender embarcaciones en puertos venezolanos. Documentación para atraque/desatraque, abastecimiento y cuidado de tripulaciones.",
+    "ai.card.title":"Servicios Aduaneros Aduana Import","ai.card.kicker":"Desaduanamiento Ágil, Seguro y Eficiente",
+    "ai.card.body":"Nacionalización de mercancías en todo el país. Trámites, permisos y acompañamiento integral.",
+    "gs.card.title":"Global Ship","gs.card.kicker":"Tu Conexión Logística con el Mundo",
+    "gs.card.body":"Conectamos líneas navieras y aéreas con Venezuela y elegimos el transporte más eficiente para cada operación.",
+    "sc.card.title":"Servicontainer Servicios de Transportes","sc.card.kicker":"Logística Terrestre que Mueve a Venezuela",
+    "sc.card.body":"Transporte nacional confiable con red operativa para entregas seguras y puntuales.",
+
+    /* ALIADOS – globos detallados */
+    "pw.title":"Pacific World Agencia Naviera",
+    "pw.intro":"Especialistas en operaciones marítimas desde el origen hasta aguas venezolanas. Gestionan la entrada legal del buque y su tripulación, asegurando el cumplimiento de todos los requisitos migratorios y portuarios antes del ingreso al país.",
+    "pw.b1":"Legalización de tripulantes y documentación del buque.",
+    "pw.b2":"Supervisión de pasaportes, permisos y autorizaciones ante autoridades competentes.",
+    "pw.b3":"Liberación de mercancía tras verificación completa.",
+    "pw.b4":"Coordinación documental para zarpe seguro y sin demoras.",
+    "pw.result":"Resultado: operaciones marítimas eficientes, transparentes y seguras desde el primer minuto.",
+
+    "ai.title":"Aduana Import",
+    "ai.intro":"Expertos en liberación de mercancías, asegurando cumplimiento de normativa vigente.",
+    "ai.b1":"Gestión de permisos, licencias y documentos ante SENIAT y demás entes.",
+    "ai.b2":"Licencia para operar en todos los puertos del país.",
+    "ai.b3":"Procesos aduaneros ágiles, confiables y sin contratiempos.",
+    "ai.result":"Resultado: importaciones y exportaciones 100 % en regla, sin riesgos legales ni retrasos.",
+
+    "gs.title":"Global Ship",
+    "gs.intro":"Tu enlace con el mundo. Puentes con aliados logísticos internacionales para tránsito aduanal por aire, mar y tierra.",
+    "gs.b1":"Búsqueda del medio más eficiente y rentable.",
+    "gs.b2":"Red global para operaciones más rápidas y seguras.",
+    "gs.b3":"Tarifas competitivas y enfoque integral.",
+    "gs.result":"Resultado: soluciones globales adaptadas a tus necesidades, con respaldo profesional.",
+
+    "sc.title":"Servicontainer",
+    "sc.intro":"Traslado terrestre en todo el país, con entregas seguras, puntuales y bien resguardadas.",
+    "sc.b1":"Transporte para productos frágiles, delicados o de gran volumen.",
+    "sc.b2":"Cobertura nacional.",
+    "sc.b3":"Monitoreo constante y cumplimiento de tiempos.",
+    "sc.result":"Resultado: tu carga llega sin sorpresas, sin demoras y en perfecto estado.",
+
+    /* TESTIMONIOS */
+    "testimonials.title":"Lo que dicen nuestros clientes",
+    "testimonials.q1":"“Con Aduana Import todo llegó a tiempo y sin sorpresas. ¡Volveremos a contratar!”","testimonials.a1":"José Pérez",
+    "testimonials.q2":"“El trato fue excelente y resolvieron todos los trámites aduanales rápidamente.”","testimonials.a2":"María Gómez",
+    "testimonials.q3":"“Nuestra carga llegó sin contratiempos. Muy profesionales.”","testimonials.a3":"Transporte Andino C.A.",
+
+    /* CONTACTO */
+    "contact.hero":"Contáctanos",
+    "contact.p1":"Ubicados en el C.C. “Las Valentinas” (Puerto Cabello). Soluciones en transporte internacional, importación y exportación, agente aduanal y servicios multimodales.",
+    "contact.p2":"Movemos todo tipo de productos, incluso mercancías peligrosas, con seguro personalizado. Red internacional con acceso a principales puertos y aeropuertos.",
+    "contact.where":"¡Dónde estamos!","contact.more":"¿Quieres saber más? Estamos a un clic de distancia.","contact.today":"¡Contáctanos hoy mismo!",
+    "contact.office":"📍 Oficina Central",
+    "contact.address":"C.C Las Valentinas, Piso 3 Ofc 2-10/12, Puerto Cabello 2050, Carabobo — La Vela, piso 1-6 Esquina de Cristo, La Guaira — Venezuela<br/>📞 (0412) 4159813 · (0242) 3618385<br/>📧 operacionesaduanaimport@gmail.com<br/>Horario de atención: 08:00-18:00",
+
+    /* FORM */
+    "form.name":"Nombre","form.email":"Correo electrónico","form.message":"Mensaje","form.submit":"Enviar","form.success":"Gracias por contactarnos. Te responderemos pronto.",
+
+    /* FAQ */
+    "faq.title":"Preguntas Frecuentes",
+    "faq.q1":"¿Qué servicios ofrecen?","faq.a1":"Ofrecemos importación, exportación, transporte terrestre, aéreo y marítimo, y asesoría aduanal.",
+    "faq.q2":"¿Dónde están ubicados?","faq.a2":"Oficinas en Puerto Cabello (Carabobo) y La Guaira, Venezuela.",
+    "faq.q3":"¿Trabajan con mercancía peligrosa?","faq.a3":"Sí, contamos con experiencia y documentación para estas cargas.",
+    "faq.q4":"¿Pueden ayudar con la nacionalización?","faq.a4":"Sí, gestionamos el desaduanamiento completo y sus trámites.",
+    "faq.q5":"¿Ofrecen servicios internacionales?","faq.a5":"Sí, conectamos con puertos y aeropuertos de todo el mundo.",
+    "faq.q6":"¿Tiempo de tránsito desde China a Venezuela?","faq.a6":"Tránsito marítimo promedio: 60 días, según proveedor, tipo de carga y condiciones logísticas.",
+    "faq.q7":"¿En cuánto tiempo se libera en aduana?","faq.a7":"Suele tardar 2–3 días hábiles, según categoría del producto y documentos.",
+    "faq.q8":"¿Pasos esenciales para liberar productos?","faq.a8.1":"Verificación documental.","faq.a8.2":"Pago de tributos y aranceles.","faq.a8.3":"Inspección aduanera.","faq.a8.4":"Levante de naviera/aerolínea.","faq.a8.5":"Coordinación de entrega final.",
+    "faq.q9":"¿Por qué cumplir normativas aduaneras?","faq.a9":"Garantiza operaciones sin sanciones y protege la legalidad de la carga.",
+
+    /* FOOTER & COOKIES */
+    "footer.contact":"Contacto","footer.emailLabel":"Email:","footer.hoursLabel":"Horario de atención:","footer.quick":"Enlaces rápidos",
+    "footer.link.home":"Inicio","footer.link.about":"¿Quiénes somos?","footer.link.services":"Servicios","footer.link.contact":"Contacto","footer.follow":"Síguenos",
+    "cookie.banner":"Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra <a href='#politica-cookies' style='color:#F68419;text-decoration:underline;'>política de cookies</a>.","cookie.accept":"Aceptar",
+    "policy.title":"Política de Cookies","policy.whatare":"¿Qué son las cookies?","policy.types":"¿Qué tipo de cookies usamos?","policy.manage":"¿Cómo puedes gestionar las cookies?",
+    "policy.p1":"Este sitio utiliza cookies para mejorar la experiencia, personalizar contenido y analizar tráfico.","policy.tech.title":"Cookies técnicas:","policy.tech.body":" necesarias para el funcionamiento del sitio.",
+    "policy.analytics.title":"Cookies de análisis:","policy.analytics.body":" ayudan a entender la interacción de los usuarios.","policy.third.title":"Cookies de terceros:","policy.third.body":" redes sociales o contenido incrustado.",
+    "policy.p2":"Puedes permitir, bloquear o eliminar cookies en tu navegador.","policy.p3":"Dudas: operacionesaduanaimport@gmail.com.",
+    "whatsapp.aria":"Contáctanos por WhatsApp","whatsapp.title":"WhatsApp"
+  ,"footer.copyright":"© 2025 Grupo Aduana Import C.A","metrics.years.num":"10+","metrics.clearance.label":"Desaduanamiento promedio","metrics.clearance.num":"2–3 días","metrics.global.label":"Puertos y aeropuertos en todo el mundo","metrics.global.num":"Mundo","metrics.years.label":"años de experiencia","why.title":"¿Por qué elegirnos?","why.4.body":"Te guiamos desde el origen hasta la entrega final.","why.4.title":"Acompañamiento end-to-end","why.3.body":"Conexiones confiables para aire, mar y tierra.","why.3.title":"Red logística global","why.2.body":"Nos enfocamos en cada trámite para reducir días y costos.","why.2.title":"Tiempos de liberación cortos","why.1.body":"Procesos ajustados a la normativa vigente y documentación impecable.","why.1.title":"Cumplimiento 100 %","services.btn.info":"Pedir información"},
+  en: {
+    "nav.home":"Home","nav.about":"About Us","nav.services":"Services","nav.allies":"Allies","nav.faq":"FAQ","nav.contact":"Contact",
+    "allies.title":"Our Strategic Allies",
+
+    /* HOME */
+    "home.hero":"Customs solutions tailored to you","home.cta.whatsapp":"Message us on WhatsApp","home.cta.quote":"Get a quote","home.hero.subtitle":"Secure, agile operations — 100% compliant.","home.hero.title":"Customs solutions, tailored to you","home.compliance":"At Grupo Aduana Import C.A., we ensure your operation is 100% compliant with current regulations.",
+    "home.intro":"At Grupo Aduana Import, we specialize in customs services from Puerto Cabello, La Guaira and Maracaibo. We provide practical, secure solutions adapted to Venezuela’s trade reality.<br><br>With 10+ years’ experience in imports/exports, we help companies meet legal requirements while optimizing time and cost—with <strong>personalized attention, fast response and transparency</strong> at every step.",
+    "home.cta":"Trust us and take your international trade to the next level",
+
+    /* ABOUT */
+    "about.title":"About Us",
+    "about.p1":"We have 10+ years moving cargo efficiently, safely and in full compliance. We operate at Venezuela’s main ports and airports, delivering reliable, hassle‑free customs service.",
+    "about.p2":"We deliver <strong>end‑to‑end solutions</strong> for import/export with an agile, strategic approach tailored to each client.",
+    "about.b1":"<strong>Expert handling</strong> of ocean and air cargo.",
+    "about.b2":"<strong>Fast customs procedures</strong> aligned with current rules.",
+    "about.b3":"<strong>Processes designed</strong> to reduce time, cost and risk.",
+    "about.sectors.title":"<strong>We serve key sectors such as:</strong>",
+    "about.sectors.1":"Logistics and transportation",
+    "about.sectors.2":"Food and perishables",
+    "about.sectors.3":"Technology and electronics",
+    "about.sectors.4":"Consumer goods and more",
+    "about.p3":"Our team is committed to excellence, transparency and personalized service, supported by a <strong>network of strategic allies</strong> to scale any operation.",
+    "about.p4":"In a world where every minute counts, we are your reliable partner in international trade.",
+    "about.tagline":"With us, borders are open!",
+
+    /* SERVICES (short) */
+    "services.title":"Customs Services",
+    "services.air.title":"Air freight",
+    "services.air.p1":"Strong presence at national and international airports to ensure quality.",
+    "services.air.p2":"Specialized handling of beverages, food, dangerous goods and live animals with thorough tracking.",
+    "services.land.title":"Ground transport ",
+    "services.land.p1":"Fleet ready for demanding jobs by volume or special handling.",
+    "services.land.p2":"Product safety and on‑time delivery guaranteed.",
+    "services.sea.title":"International ocean freight",
+    "services.sea.p1":"We connect Venezuelan and global ports with an extensive network.",
+    "services.sea.p2":"Offices in Puerto Cabello, Maiquetía and La Guaira.",
+    "services.trade.title":"Import / export of goods",
+    "services.trade.p1":"National and international operations with full paperwork management.",
+    "services.trade.p2":"Optional cargo insurance and prevention protocols.",
+
+    "cta.request":"Request your quote now",
+
+    /* ALLIES – cards */
+    "pw.card.title":"Pacific World Shipping Agency",
+    "pw.card.kicker":"Maritime Operations with International Excellence",
+    "pw.card.body":"Authorized to attend vessels at Venezuelan ports. Documents for docking/undocking, port supply and crew care.",
+    "ai.card.title":"Aduana Import Customs Services","ai.card.kicker":"Agile, Safe & Efficient Customs Clearance",
+    "ai.card.body":"Nationwide customs clearance. Permits, legal requirements and end‑to‑end support.",
+    "gs.card.title":"Global Ship","gs.card.kicker":"Your Logistics Link to the World",
+    "gs.card.body":"We connect carriers with Venezuela and choose the most efficient transport for each operation.",
+    "sc.card.title":"Servicontainer Transport Services","sc.card.kicker":"Ground Logistics that Move Venezuela",
+    "sc.card.body":"Reliable nationwide freight network for safe, on‑time deliveries.",
+
+    /* ALLIES – balloons */
+    "pw.title":"Pacific World Shipping Agency",
+    "pw.intro":"Specialists in maritime operations from origin to Venezuelan waters. They handle vessel and crew entry, ensuring compliance with immigration and port requirements before arrival.",
+    "pw.b1":"Crew legalization and vessel documentation.",
+    "pw.b2":"Supervision of passports, permits and authorizations.",
+    "pw.b3":"Cargo release after complete verification.",
+    "pw.b4":"Document coordination for a safe, delay‑free departure.",
+    "pw.result":"Result: efficient, transparent and secure maritime operations from minute one.",
+
+    "ai.title":"Aduana Import",
+    "ai.intro":"Experts in customs clearance ensuring compliance with current regulations.",
+    "ai.b1":"Management of permits, licenses and documents with SENIAT and other entities.",
+    "ai.b2":"Licensed to operate in all national ports.",
+    "ai.b3":"Agile, reliable customs processes without setbacks.",
+    "ai.result":"Result: imports/exports 100% compliant, free of legal risks or delays.",
+
+    "gs.title":"Global Ship",
+    "gs.intro":"Your link to the world. Bridges with international logistics partners to facilitate customs transit by air, sea and land.",
+    "gs.b1":"Search for the most efficient, cost‑effective mode.",
+    "gs.b2":"Global network for faster, safer operations.",
+    "gs.b3":"Competitive rates and end‑to‑end approach.",
+    "gs.result":"Result: global solutions tailored to your needs with professional support.",
+
+    "sc.title":"Servicontainer",
+    "sc.intro":"Nationwide ground transport ensuring secure and on‑time deliveries.",
+    "sc.b1":"Specialized transport for fragile, delicate or oversized goods.",
+    "sc.b2":"Coverage across the national territory.",
+    "sc.b3":"Constant monitoring and on‑time performance.",
+    "sc.result":"Result: your cargo arrives without surprises, delays, and in perfect condition.",
+
+    /* TESTIMONIALS */
+    "testimonials.title":"What our clients say",
+    "testimonials.q1":"“Everything arrived on time and without surprises. We’ll hire them again!”","testimonials.a1":"José Pérez",
+    "testimonials.q2":"“Excellent service—customs paperwork handled quickly.”","testimonials.a2":"María Gómez",
+    "testimonials.q3":"“Our cargo arrived without issues. Very professional.”","testimonials.a3":"Transporte Andino C.A.",
+
+    /* CONTACT */
+    "contact.hero":"Contact Us",
+    "contact.p1":"Located at “Las Valentinas” Mall (Puerto Cabello). End‑to‑end solutions in international transport, import/export, customs brokerage and multimodal services.",
+    "contact.p2":"We move all kinds of goods—including dangerous goods—with tailored cargo insurance. International network with access to major ports and airports.",
+    "contact.where":"Where we are","contact.more":"Want to know more? We’re one click away.","contact.today":"Contact us today!",
+    "contact.office":"📍 Head Office",
+    "contact.address":"Las Valentinas Mall, 3rd Floor, Office 2‑10/12, Puerto Cabello 2050, Carabobo — La Vela Mall, 1‑6, Esquina de Cristo, La Guaira — Venezuela<br/>📞 (0412) 4159813 · (0242) 3618385<br/>📧 operacionesaduanaimport@gmail.com<br/>Business hours: 08:00‑18:00",
+
+    /* FORM */
+    "form.name":"Name","form.email":"Email","form.message":"Message","form.submit":"Send","form.success":"Thanks for contacting us. We’ll get back to you soon.",
+
+    /* FAQ */
+    "faq.title":"Frequently Asked Questions",
+    "faq.q1":"What services do you offer?","faq.a1":"Import, export, ground, air and sea transport, plus customs consulting.",
+    "faq.q2":"Where are you located?","faq.a2":"Offices in Puerto Cabello (Carabobo) and La Guaira, Venezuela.",
+    "faq.q3":"Do you handle dangerous goods?","faq.a3":"Yes, we have experience and the proper documentation.",
+    "faq.q4":"Can you help with customs clearance?","faq.a4":"Yes, we manage the full customs clearance process.",
+    "faq.q5":"Do you operate internationally?","faq.a5":"Yes, we connect with ports and airports worldwide.",
+    "faq.q6":"Transit time from China to Venezuela?","faq.a6":"Average ocean transit: 60 days, depending on provider, cargo and logistics.",
+    "faq.q7":"How long does customs clearance take?","faq.a7":"Usually 2–3 business days, depending on product category and documents.",
+    "faq.q8":"Essential steps to clear goods?","faq.a8.1":"Document verification.","faq.a8.2":"Payment of duties and taxes.","faq.a8.3":"Customs inspection.","faq.a8.4":"Carrier release (shipping line/airline).","faq.a8.5":"Final delivery coordination.",
+    "faq.q9":"Why comply with customs regulations?","faq.a9":"It ensures smooth operations, avoids penalties and protects the cargo’s legal status.",
+
+    /* FOOTER & COOKIES */
+    "footer.contact":"Contact","footer.emailLabel":"Email:","footer.hoursLabel":"Business hours:","footer.quick":"Quick links",
+    "footer.link.home":"Home","footer.link.about":"About Us","footer.link.services":"Services","footer.link.contact":"Contact","footer.follow":"Follow us",
+    "cookie.banner":"We use cookies to improve your experience. By continuing, you accept our <a href='#politica-cookies' style='color:#F68419;text-decoration:underline;'>cookie policy</a>.","cookie.accept":"Accept",
+    "policy.title":"Cookie Policy","policy.whatare":"What are cookies?","policy.types":"What types of cookies do we use?","policy.manage":"How can you manage cookies?",
+    "policy.p1":"This site uses cookies to improve experience, personalize content and analyze traffic.","policy.tech.title":"Technical cookies:","policy.tech.body":" necessary for the site to work.",
+    "policy.analytics.title":"Analytics cookies:","policy.analytics.body":" help us understand user behavior.","policy.third.title":"Third‑party cookies:","policy.third.body":" social networks or embedded content.",
+    "policy.p2":"You can allow, block or delete cookies in your browser.","policy.p3":"Questions: operacionesaduanaimport@gmail.com.",
+    "whatsapp.aria":"Contact us on WhatsApp","whatsapp.title":"WhatsApp"
+  ,"footer.copyright":"© 2025 Grupo Aduana Import C.A","metrics.years.num":"10+","metrics.clearance.label":"Average customs clearance","metrics.clearance.num":"2–3 days","metrics.global.label":"Access to major ports and airports worldwide","metrics.global.num":"Global","metrics.years.label":"years of experience","why.title":"Why choose us","why.4.body":"Guidance from origin to final delivery.","why.4.title":"End‑to‑end support","why.3.body":"Trusted connections by air, sea and land.","why.3.title":"Global logistics network","why.2.body":"We streamline every step to cut days and costs.","why.2.title":"Faster clearance times","why.1.body":"Processes aligned with regulations and impeccable documentation.","why.1.title":"100% compliance"}
+};
+window.I18N = I18N;
+
+
+function setLang(lang){
+  localStorage.setItem('lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.getAttribute('data-i18n'); const val=I18N[lang]&&I18N[lang][key];
+    if(val!=null) el.innerHTML=val;
+  });
+  document.querySelectorAll('[data-i18n-attr]').forEach(el=>{
+    el.getAttribute('data-i18n-attr').split(';').map(s=>s.trim()).filter(Boolean).forEach(pair=>{
+      const [attr,key]=pair.split(':').map(s=>s.trim()); const val=I18N[lang]&&I18N[lang][key];
+      if(attr&&val!=null) el.setAttribute(attr,val);
+    });
+  });
+  document.querySelectorAll('[data-lang-btn]').forEach(b=>{
+    const active=(b.getAttribute('data-lang-btn')===lang);
+    b.style.fontWeight=active?'700':'400'; b.style.textDecoration=active?'underline':'none';
+  });
+}
+
+function tag(el,key){ if(el) el.setAttribute('data-i18n', key); }
+function tagAttr(el,map){ if(el) el.setAttribute('data-i18n-attr', map); }
+
+function autoI18nTagging(){
+  // NAV
+  tag(document.querySelector('a.nav-btn[href="#inicio"]'),'nav.home');
+  tag(document.querySelector('a.nav-btn[href="#nosotros"]'),'nav.about');
+  tag(document.querySelector('a.nav-btn[href="#servicios"]'),'nav.services');
+  tag(document.querySelector('a.nav-btn[href="#partners"]'),'nav.allies');
+  tag(document.querySelector('a.nav-btn[href="#faq"]'),'nav.faq');
+  tag(document.querySelector('a.nav-btn[href="#contacto"]'),'nav.contact');
+
+  // INICIO
+  tag(document.querySelector('#inicio .hero-text h1'),'home.hero');
+  tag(document.querySelector('#inicio .contenido p'),'home.intro');
+  tag(document.querySelector('#inicio .contenido h3'),'home.cta');
+
+  // NOSOTROS (About) — fuerza el marcado para que EN funcione sí o sí
+  const nosHeroH1s = document.querySelectorAll('#nosotros .hero h1');
+  nosHeroH1s.forEach(h=>tag(h,'about.title'));
+  const nosP = document.querySelectorAll('#nosotros .contenido p');
+  if(nosP[0]) tag(nosP[0],'about.p1');
+  if(nosP[1]) tag(nosP[1],'about.p2');
+  const ulAll = document.querySelectorAll('#nosotros .contenido ul');
+  if(ulAll[0]){
+    const li = ulAll[0].querySelectorAll('li');
+    if(li[0]) tag(li[0],'about.b1');
+    if(li[1]) tag(li[1],'about.b2');
+    if(li[2]) tag(li[2],'about.b3');
+  }
+  if(nosP[2]) tag(nosP[2],'about.sectors.title');
+  if(ulAll[1]){
+    const li2 = ulAll[1].querySelectorAll('li');
+    if(li2[0]) tag(li2[0],'about.sectors.1');
+    if(li2[1]) tag(li2[1],'about.sectors.2');
+    if(li2[2]) tag(li2[2],'about.sectors.3');
+    if(li2[3]) tag(li2[3],'about.sectors.4');
+  }
+  if(nosP[3]) tag(nosP[3],'about.p3');
+  if(nosP[4]) tag(nosP[4],'about.p4');
+  tag(document.querySelector('#nosotros .contenido h3'),'about.tagline');
+
+  // SERVICIOS
+  tag(document.querySelector('#servicios .hero h1'),'services.title');
+  const air=document.querySelector('a[href="#partner-global-ship"] h3');
+  if(air) tag(air,'services.air.title');
+  const airP=air?air.closest('h3').parentElement.parentElement.querySelectorAll('p'):null;
+  if(airP&&airP[0]) tag(airP[0],'services.air.p1');
+  if(airP&&airP[1]) tag(airP[1],'services.air.p2');
+
+  const land=document.querySelector('a[href="#partner-servicontainer"] h3');
+  if(land) tag(land,'services.land.title');
+  const landP=land?land.closest('h3').parentElement.parentElement.querySelectorAll('p'):null;
+  if(landP&&landP[0]) tag(landP[0],'services.land.p1');
+  if(landP&&landP[1]) tag(landP[1],'services.land.p2');
+
+  const sea=document.querySelector('a[href="#partner-pacific-world"] h3');
+  if(sea) tag(sea,'services.sea.title');
+  const seaP=sea?sea.closest('h3').parentElement.parentElement.querySelectorAll('p'):null;
+  if(seaP&&seaP[0]) tag(seaP[0],'services.sea.p1');
+  if(seaP&&seaP[1]) tag(seaP[1],'services.sea.p2');
+
+  const trade=document.querySelectorAll('a[href="#partner-global-ship"] h3')[1];
+  if(trade) tag(trade,'services.trade.title');
+  const tradeP=trade?trade.closest('h3').parentElement.parentElement.querySelectorAll('p'):null;
+  if(tradeP&&tradeP[0]) tag(tradeP[0],'services.trade.p1');
+  if(tradeP&&tradeP[1]) tag(tradeP[1],'services.trade.p2');
+
+  tag(document.querySelector('#servicios .boton-principal'),'cta.request');
+
+  // ALIADOS — título
+  tag(document.querySelector('.partners-hero h1'),'allies.title');
+
+  // ALIADOS — cards visibles
+  const pw=document.querySelector('#partner-pacific-world');
+  if(pw){ tag(pw.querySelector('h3'),'pw.card.title');
+    const kicker=pw.querySelector('p div, p > div'); if(kicker) tag(kicker,'pw.card.kicker');
+    const body=pw.querySelectorAll('p'); if(body[body.length-1]) tag(body[body.length-1],'pw.card.body');
+  }
+  const ai=document.querySelector('#partner-aduana-import');
+  if(ai){ tag(ai.querySelector('h3'),'ai.card.title');
+    const body=ai.querySelectorAll('p'); if(body[body.length-1]) tag(body[body.length-1],'ai.card.body');
+  }
+  const gs=document.querySelector('#partner-global-ship');
+  if(gs){ tag(gs.querySelector('h3'),'gs.card.title');
+    const body=gs.querySelectorAll('p'); if(body[body.length-1]) tag(body[body.length-1],'gs.card.body');
+  }
+  const sc=document.querySelector('#partner-servicontainer');
+  if(sc){ tag(sc.querySelector('h3'),'sc.card.title');
+    const body=sc.querySelectorAll('p'); if(body[body.length-1]) tag(body[body.length-1],'sc.card.body');
+  }
+
+  // ALIADOS — globos títulos
+  tag(document.querySelector('#detalle-pacific-world h3'),'pw.title');
+  tag(document.querySelector('#detalle-aduana-import h3'),'ai.title');
+  tag(document.querySelector('#detalle-global-ship h3'),'gs.title');
+  tag(document.querySelector('#detalle-servicontainer h3'),'sc.title');
+
+  // TESTIMONIOS
+  tag(document.querySelector('#testimonios .titulo-seccion'),'testimonials.title');
+
+  // CONTACTO
+  tag(document.querySelector('#contacto .hero'),'contact.hero');
+  const cP=document.querySelectorAll('#contacto .contenido p');
+  if(cP[0]) tag(cP[0],'contact.p1');
+  if(cP[1]) tag(cP[1],'contact.p2');
+  tag(document.querySelector('#contacto .contenido h3'),'contact.where');
+  const bolds=document.querySelectorAll('#contacto .contenido p strong');
+  if(bolds[0]) bolds[0].setAttribute('data-i18n','contact.more');
+  if(bolds[1]) bolds[1].setAttribute('data-i18n','contact.today');
+  tag(document.querySelector('#contacto h4'),'contact.office');
+  tag(document.querySelector('#contacto h4 + p'),'contact.address');
+  const lblN=document.querySelector('label[for="nombre"]'); if(lblN) tag(lblN,'form.name');
+  const lblE=document.querySelector('label[for="correo"]'); if(lblE) tag(lblE,'form.email');
+  const lblM=document.querySelector('label[for="mensaje"]'); if(lblM) tag(lblM,'form.message');
+  const btnS=document.querySelector('#contacto button[type="submit"]'); if(btnS) tag(btnS,'form.submit');
+  const ok=document.querySelector('#form-success'); if(ok) tag(ok,'form.success');
+  const wa=document.querySelector('a[aria-label][title*="WhatsApp"]');
+  tagAttr(wa,'aria-label:whatsapp.aria;title:whatsapp.title');
+  // POPUP details: tag intro, bullets and result if not pre-tagged
+  function safeTag(sel, key){
+    const el = document.querySelector(sel);
+    if(el && !el.hasAttribute('data-i18n')) el.setAttribute('data-i18n', key);
+  }
+  // Pacific World
+  safeTag('#detalle-pacific-world h3','pw.title');
+  safeTag('#detalle-pacific-world p','pw.intro');
+  const pwLis = document.querySelectorAll('#detalle-pacific-world ul li');
+  if(pwLis[0] && !pwLis[0].hasAttribute('data-i18n')) pwLis[0].setAttribute('data-i18n','pw.b1');
+  if(pwLis[1] && !pwLis[1].hasAttribute('data-i18n')) pwLis[1].setAttribute('data-i18n','pw.b2');
+  if(pwLis[2] && !pwLis[2].hasAttribute('data-i18n')) pwLis[2].setAttribute('data-i18n','pw.b3');
+  if(pwLis[3] && !pwLis[3].hasAttribute('data-i18n')) pwLis[3].setAttribute('data-i18n','pw.b4');
+  const pwRes = document.querySelector('#detalle-pacific-world p strong');
+  if(pwRes && !pwRes.firstElementChild) pwRes.innerHTML = '<span data-i18n="pw.result">'+pwRes.innerHTML+'</span>';
+
+  // Aduana Import
+  safeTag('#detalle-aduana-import h3','ai.title');
+  safeTag('#detalle-aduana-import p','ai.intro');
+  const aiLis = document.querySelectorAll('#detalle-aduana-import ul li');
+  if(aiLis[0] && !aiLis[0].hasAttribute('data-i18n')) aiLis[0].setAttribute('data-i18n','ai.b1');
+  if(aiLis[1] && !aiLis[1].hasAttribute('data-i18n')) aiLis[1].setAttribute('data-i18n','ai.b2');
+  if(aiLis[2] && !aiLis[2].hasAttribute('data-i18n')) aiLis[2].setAttribute('data-i18n','ai.b3');
+  const aiRes = document.querySelector('#detalle-aduana-import p strong');
+  if(aiRes && !aiRes.firstElementChild) aiRes.innerHTML = '<span data-i18n="ai.result">'+aiRes.innerHTML+'</span>';
+
+  // Global Ship
+  safeTag('#detalle-global-ship h3','gs.title');
+  safeTag('#detalle-global-ship p','gs.intro');
+  const gsLis = document.querySelectorAll('#detalle-global-ship ul li');
+  if(gsLis[0] && !gsLis[0].hasAttribute('data-i18n')) gsLis[0].setAttribute('data-i18n','gs.b1');
+  if(gsLis[1] && !gsLis[1].hasAttribute('data-i18n')) gsLis[1].setAttribute('data-i18n','gs.b2');
+  if(gsLis[2] && !gsLis[2].hasAttribute('data-i18n')) gsLis[2].setAttribute('data-i18n','gs.b3');
+  const gsRes = document.querySelector('#detalle-global-ship p strong');
+  if(gsRes && !gsRes.firstElementChild) gsRes.innerHTML = '<span data-i18n="gs.result">'+gsRes.innerHTML+'</span>';
+
+  // Servicontainer
+  safeTag('#detalle-servicontainer h3','sc.title');
+  safeTag('#detalle-servicontainer p','sc.intro');
+  const scLis = document.querySelectorAll('#detalle-servicontainer ul li');
+  if(scLis[0] && !scLis[0].hasAttribute('data-i18n')) scLis[0].setAttribute('data-i18n','sc.b1');
+  if(scLis[1] && !scLis[1].hasAttribute('data-i18n')) scLis[1].setAttribute('data-i18n','sc.b2');
+  if(scLis[2] && !scLis[2].hasAttribute('data-i18n')) scLis[2].setAttribute('data-i18n','sc.b3');
+  const scRes = document.querySelector('#detalle-servicontainer p strong');
+  if(scRes && !scRes.firstElementChild) scRes.innerHTML = '<span data-i18n="sc.result">'+scRes.innerHTML+'</span>';
+
+  
+
+  // FAQ
+  tag(document.querySelector('#faq h1'),'faq.title');
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  autoI18nTagging();
+  setLang('es');
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll("#inicio .mini-metric .num");
+
+  const runCounter = (el, endValue) => {
+    let duration = 1800; // tiempo de animación
+    let startTime = null;
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      el.textContent = Math.floor(progress * endValue);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = el.dataset.final; // mostrar formato final (+, K, etc.)
+        // esperar 2s y reiniciar ciclo
+        setTimeout(() => {
+          el.textContent = "0";
+          requestAnimationFrame(() => runCounter(el, endValue));
+        }, 2000);
+      }
+    };
+    requestAnimationFrame(step);
+  };
+
+  counters.forEach(el => {
+    el.dataset.final = el.textContent.trim();
+    let endValue = parseInt(el.dataset.final.replace(/\D/g, "")) || 0;
+    el.textContent = "0"; // inicia desde 0
+    runCounter(el, endValue);
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof changeLanguage === "function") {
+    changeLanguage("es"); // force Spanish as default
+  }
+});
+</script><script id="home-servicesbox-i18n">
+(function(){
+  if(!window.I18N){ return; }
+  var es = (I18N.es = I18N.es || {});
+  var en = (I18N.en = I18N.en || {});
+  // headers
+  es["home.servicesBox.h1"]="Servicio";
+  es["home.servicesBox.h2"]="Cobertura y Alcance";
+  es["home.servicesBox.h3"]="Tipo de Carga";
+  es["home.servicesBox.h4"]="Beneficios Clave";
+  en["home.servicesBox.h1"]="Service";
+  en["home.servicesBox.h2"]="Coverage & Reach";
+  en["home.servicesBox.h3"]="Cargo Type";
+  en["home.servicesBox.h4"]="Key Benefits";
+  // rows
+  es["home.servicesBox.r1.c1"]="Transporte Aéreo";
+  es["home.servicesBox.r1.c2"]="Nacional e internacional – principales aeropuertos de Venezuela";
+  es["home.servicesBox.r1.c3"]="Alimentos, bebidas, mercancía peligrosa, animales vivos, artículos varios";
+  es["home.servicesBox.r1.c4"]="Alta velocidad, manejo prioritario, seguimiento en tiempo real";
+  en["home.servicesBox.r1.c1"]="Air Freight";
+  en["home.servicesBox.r1.c2"]="Domestic and international – main airports in Venezuela";
+  en["home.servicesBox.r1.c3"]="Food, beverages, hazardous goods, live animals, assorted items";
+  en["home.servicesBox.r1.c4"]="High speed, priority handling, real-time tracking";
+
+  es["home.servicesBox.r2.c1"]="Transporte Marítimo Internacional";
+  es["home.servicesBox.r2.c2"]="Todos los puertos venezolanos y principales puertos del mundo";
+  es["home.servicesBox.r2.c3"]="Contenedores, carga general o especializada";
+  es["home.servicesBox.r2.c4"]="Red logística amplia, salidas regulares, conexiones globales";
+  en["home.servicesBox.r2.c1"]="International Ocean Freight";
+  en["home.servicesBox.r2.c2"]="All Venezuelan ports and major ports worldwide";
+  en["home.servicesBox.r2.c3"]="Containers, general or specialized cargo";
+  en["home.servicesBox.r2.c4"]="Wide logistics network, regular sailings, global connections";
+
+  es["home.servicesBox.r3.c1"]="Transporte Terrestre";
+  es["home.servicesBox.r3.c2"]="Cobertura nacional";
+  es["home.servicesBox.r3.c3"]="Mercancía frágil, peligrosa o de gran volumen";
+  es["home.servicesBox.r3.c4"]="Seguridad garantizada, entregas a tiempo, flota adaptada";
+  en["home.servicesBox.r3.c1"]="Ground Transportation";
+  en["home.servicesBox.r3.c2"]="Nationwide coverage";
+  en["home.servicesBox.r3.c3"]="Fragile, hazardous, or bulky goods";
+  en["home.servicesBox.r3.c4"]="Guaranteed security, on-time delivery, tailored fleet";
+
+  es["home.servicesBox.r4.c1"]="Importación y Exportación";
+  es["home.servicesBox.r4.c2"]="Nacional e internacional";
+  es["home.servicesBox.r4.c3"]="Bienes de consumo, tecnología, perecederos, etc.";
+  es["home.servicesBox.r4.c4"]="Asesoría integral, cumplimiento normativo, optimización de costos";
+  en["home.servicesBox.r4.c1"]="Import & Export";
+  en["home.servicesBox.r4.c2"]="Domestic and international";
+  en["home.servicesBox.r4.c3"]="Consumer goods, technology, perishables, etc.";
+  en["home.servicesBox.r4.c4"]="Comprehensive advisory, regulatory compliance, cost optimization";
+})();
+
+  es["services.btn.info"] = "Pedir información";
+  en["services.btn.info"] = "Request info";
+</script>
+<script id="aesthetic-init">
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    if(!location.hash){
+      var inicio = document.getElementById('inicio');
+      if(inicio){
+        // Hide siblings <section>, show inicio
+        document.querySelectorAll('section').forEach(s => s.style.display='none');
+        inicio.style.display='block';
+      }
+    }
+  }catch(e){}
+});
+</script>
+</body>
+</html>
