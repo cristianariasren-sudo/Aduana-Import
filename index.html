@@ -1809,7 +1809,86 @@ body { font-size: 16px; line-height: 1.6; }
   body { font-size: 17px; }
 }
 img { display: block; max-width: 100%; height: auto; }
-</style></head>
+</style>
+<style id="contact-ports-css">
+/* Contacto: caja full-row y tabla igual estilo que Servicios */
+#contacto .contact-ports-fullrow{
+  position: relative;
+  display: block !important;
+  width: 100% !important;
+  max-width: 1040px;
+  margin: 16px auto 0 !important;
+  padding: 0;
+  float: none !important;
+  clear: both !important;
+  grid-column: 1 / -1 !important;
+  flex: 0 0 100% !important;
+}
+#contacto .ports-card{
+  border: 1px solid #e8e8e8;
+  border-top: 4px solid #F68419;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  overflow: hidden;
+}
+#contacto .ports-card table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #333;
+}
+#contacto .ports-card thead th {
+  text-align: center;
+  background: #f7f7f7;
+  color: #002b5c !important;
+  font-weight: 800;
+  padding: 12px 14px;
+  border-bottom: 1px solid #ededed;
+}
+#contacto .ports-card tbody td{
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f1f1;
+  line-height: 1.45;
+  text-align: left;
+  vertical-align: top;
+}
+#contacto .ports-card tbody tr:nth-child(even){ background:#fafafa; }
+#contacto .ports-card td:first-child{ font-weight: 700; color:#111; width: 240px; }
+#contacto .ports-card tbody tr:hover td{ background: rgba(246,132,25,.05); }
+
+/* empuja lo que sigue (el formulario) */
+#contacto .contact-ports-fullrow + * { margin-top: 28px !important; }
+
+/* Responsive: tarjetas apiladas */
+@media (max-width: 780px){
+  #contacto .ports-card thead{ display:none; }
+  #contacto .ports-card tbody tr{
+    display:block;
+    margin: 12px;
+    border:1px solid #eee;
+    border-top:3px solid #F68419;
+    border-radius:8px;
+    background:#fff;
+    overflow:hidden;
+  }
+  #contacto .ports-card tbody td{
+    display:block;
+    border-bottom:1px solid #eee;
+  }
+  #contacto .ports-card tbody td:last-child{ border-bottom:0; }
+  #contacto .ports-card tbody td::before{
+    content: attr(data-label);
+    display:block;
+    font-weight:600;
+    color:#F68419;
+    margin-bottom:4px;
+  }
+  #contacto .ports-card td:first-child{ width: auto; }
+}
+</style>
+
+</head>
 <body>
 <!-- Switch de idioma -->
 <header class="site-header" style="
@@ -1985,6 +2064,53 @@ en cada paso del proceso</strong>.<br/><br/>
 <p style="text-align: center; font-size: 1.1em;"><strong>¿Quieres saber más? Estamos a un clic de distancia.</strong></p><div style="max-width: 600px; margin: 20px auto; text-align: center;"><h3 style="color: #002b5c; text-align: center; margin-top: 30px;">¡Dónde estamos!</h3>
 <iframe allowfullscreen="" height="250" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Centro+Comercial+Las+Valentinas,+Puerto+Cabello,+Venezuela&amp;output=embed" style="border:0;" width="100%"></iframe>
 </div>
+<!-- Puertos y aeropuertos — tabla (igual estilo que Servicios) -->
+<div class="contact-ports-fullrow">
+  <h3 style="text-align:center; color:#002b5c; margin: 10px 0 12px;">
+    <span data-i18n="contact.ports.title">Puertos y aeropuertos</span>
+  </h3>
+  <div class="ports-card">
+    <table>
+      <thead>
+        <tr>
+          <th data-i18n="contact.ports.h1">Ciudad</th>
+          <th data-i18n="contact.ports.h2">Aduanas y Terminales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-i18n="contact.ports.r1.c1" data-label="Ciudad">Puerto Cabello</td>
+          <td data-label="Aduanas y Terminales">
+            <div data-i18n="contact.ports.r1.c2">Aduana Principal.</div>
+          </td>
+        </tr>
+        <tr>
+          <td data-i18n="contact.ports.r2.c1" data-label="Ciudad">Valencia</td>
+          <td data-label="Aduanas y Terminales">
+            <div data-i18n="contact.ports.r2.c2">Aduana Aérea de Valencia</div>
+          </td>
+        </tr>
+        <tr>
+          <td data-i18n="contact.ports.r3.c1" data-label="Ciudad">La Guaira / Maiquetía</td>
+          <td data-label="Aduanas y Terminales">
+            <div data-i18n="contact.ports.r3.c2">Aduana Marítima de La Guaira</div>
+            <div data-i18n="contact.ports.r3.c3">Aduana Aérea de Maiquetía</div>
+          </td>
+        </tr>
+        <tr>
+          <td data-i18n="contact.ports.r4.c1" data-label="Ciudad">Maracaibo</td>
+          <td data-label="Aduanas y Terminales">
+            <div data-i18n="contact.ports.r4.c2">Aduana Principal de Maracaibo</div>
+            <div data-i18n="contact.ports.r4.c3">Aduana Aérea de La Chinita</div>
+            <div data-i18n="contact.ports.r4.c4">Aduana terrestre de Paraguanchón</div>
+            <div data-i18n="contact.ports.r4.c5">Aduana Subalterna del Tablazo</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <p style="text-align: center; font-size: 1.1em; font-weight: bold;"><strong>¡Contáctanos hoy mismo!</strong></p>
 <h4>📍 Oficina Central</h4>
 <p>
@@ -2967,5 +3093,51 @@ document.addEventListener('DOMContentLoaded', function(){
   }catch(e){}
 });
 </script>
+
+<script id="contact-ports-i18n">
+(function(){
+  if(!window.I18N){ return; }
+  var es = (I18N.es = I18N.es || {});
+  var en = (I18N.en = I18N.en || {});
+
+  // Headings
+  es["contact.ports.title"] = "Puertos y aeropuertos";
+  es["contact.ports.h1"] = "Ciudad";
+  es["contact.ports.h2"] = "Aduanas y Terminales";
+  en["contact.ports.title"] = "Ports and airports";
+  en["contact.ports.h1"] = "City";
+  en["contact.ports.h2"] = "Customs & Terminals";
+
+  // Rows
+  es["contact.ports.r1.c1"] = "Puerto Cabello";
+  es["contact.ports.r1.c2"] = "Aduana Principal.";
+  en["contact.ports.r1.c1"] = "Puerto Cabello";
+  en["contact.ports.r1.c2"] = "Main Customs Office.";
+
+  es["contact.ports.r2.c1"] = "Valencia";
+  es["contact.ports.r2.c2"] = "Aduana Aérea de Valencia";
+  en["contact.ports.r2.c1"] = "Valencia";
+  en["contact.ports.r2.c2"] = "Valencia Air Customs";
+
+  es["contact.ports.r3.c1"] = "La Guaira / Maiquetía";
+  es["contact.ports.r3.c2"] = "Aduana Marítima de La Guaira";
+  es["contact.ports.r3.c3"] = "Aduana Aérea de Maiquetía";
+  en["contact.ports.r3.c1"] = "La Guaira / Maiquetía";
+  en["contact.ports.r3.c2"] = "La Guaira Maritime Customs";
+  en["contact.ports.r3.c3"] = "Maiquetía Air Customs";
+
+  es["contact.ports.r4.c1"] = "Maracaibo";
+  es["contact.ports.r4.c2"] = "Aduana Principal de Maracaibo";
+  es["contact.ports.r4.c3"] = "Aduana Aérea de La Chinita";
+  es["contact.ports.r4.c4"] = "Aduana terrestre de Paraguanchón";
+  es["contact.ports.r4.c5"] = "Aduana Subalterna del Tablazo";
+  en["contact.ports.r4.c1"] = "Maracaibo";
+  en["contact.ports.r4.c2"] = "Main Customs Office of Maracaibo";
+  en["contact.ports.r4.c3"] = "La Chinita Air Customs";
+  en["contact.ports.r4.c4"] = "Paraguachón Land Customs";
+  en["contact.ports.r4.c5"] = "El Tablazo Subordinate Customs";
+})();
+</script>
+
 </body>
 </html>
